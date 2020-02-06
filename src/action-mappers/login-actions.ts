@@ -1,4 +1,4 @@
-import { apiLogin } from "../remote/p1-ers/user-login-clients"
+import { apiLogin } from "../remote/mens-rea-app/mens-rea-login-clients"
 
 
 export const loginTypes = {
