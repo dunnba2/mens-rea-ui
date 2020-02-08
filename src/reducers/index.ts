@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
-// import { registerReducer } from "./register-reducer";
+import { registerReducer } from "./register-reducer";
 
 
 export interface IUserState {
@@ -9,19 +9,19 @@ export interface IUserState {
 }
 
 export interface IRegisterState {
-    newUser:any
     registerMessage:string
 }
 
 export interface IState {
     userState : IUserState
-    
+    registerState : IRegisterState
 }
 
 
 // we will take the individual reduces for each part of state
 // and turn them into one super reducer that represents all of state
 export const state = combineReducers<IState>({
-    userState:loginReducer
+    userState:loginReducer,
+    registerState:registerReducer
    
 })
