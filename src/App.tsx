@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavbarComponent } from './components/navbar-component/NavbarComponent';
 import  LoginComponent  from './components/login-component/LoginContainer';
 import RegisterComponent from './components/register-component/RegisterContainer';
+import { MediaBookComponent } from './components/media-component/MediaBookComponent';
+import { MediaVisualComponent } from "./components/media-component/MediaVisualComponent";
 
 
 const App: React.FC = () => {
@@ -18,6 +20,8 @@ const App: React.FC = () => {
           <Switch>
             <Route path='/login' component={LoginComponent}/>
             <Route path='/register' component={RegisterComponent}/>
+            <Route path="/books" component={MediaBookComponent}/>
+            <Route path="/moviesshows" component={MediaVisualComponent}/>
           </Switch>
           
         </Router>
