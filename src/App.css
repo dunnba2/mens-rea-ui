@@ -49,3 +49,4 @@ h2 {text-align:right;text-transform:lowercase;background:rgba(21, 17, 14, 0.85);
 h4 {color:#f4fef6;font-size:1.2em;letter-spacing:2px;padding-left:10px;padding-right:10px;}
 p::first-letter {color:#f4fef6;font-size:1.1em;font-weight:bold;}
 footer {background:#181310;color:#ae9e89;position: absolute;bottom:0;width:100%;}
+img {float: left; border-radius:15px;border: double 9px #181310;}
