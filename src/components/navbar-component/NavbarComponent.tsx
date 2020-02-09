@@ -11,7 +11,7 @@ export const NavbarComponent = (props: any) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">Buhlakify EM</NavbarBrand>
+                <NavbarBrand href="/">Mens Rea</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>

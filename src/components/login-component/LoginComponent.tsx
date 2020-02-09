@@ -42,14 +42,10 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
 
     render() {
         return (
-            <div>
-                <Jumbotron>
-                    <h2 className="display-4">
-                        <strong>Mens Rea Login</strong>
-                    </h2>
-                    <p className="lead">Something catchy here tbd</p>
-                </Jumbotron>
-                <div className="d-flex justify-content-center">
+            <div className="main">
+                    <h1>Mens Rea</h1>
+                    <h2>Please Log In</h2>
+                <div className="content">
                 <Form  onSubmit={this.submitLogin}>
                     <FormGroup row>
                         <Col sm={12}>
@@ -73,8 +69,9 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
                                 onChange={this.updatePassword} />
                         </Col>
                     </FormGroup>
-                    <Button color="secondary">Login</Button>
+                    <Button className="mr-button">Login</Button>
                 </Form>
+                <br/><br/>
                 </div>
                 <p>{this.props.loginMessage}</p>
             </div>
