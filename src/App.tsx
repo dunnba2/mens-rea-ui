@@ -22,7 +22,7 @@ const App: React.FC = () => {
           
         </Router>
       </Provider>
-     
+     <footer>A project by Blake Dunn, Ivanna Mahabir, and Tannilen Reagan</footer>
     </div>
   );
 }

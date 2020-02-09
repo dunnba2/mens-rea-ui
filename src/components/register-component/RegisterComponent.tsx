@@ -51,14 +51,13 @@ export class RegisterComponent extends React.Component<IRegisterProps, IRegister
 
     render() {
         return (
-            <div>
-                <Jumbotron>
-                    <h2 className="display-4">
-                        <strong>Mens Rea Register</strong>
-                    </h2>
-                    <p className="lead">Something catchy here tbd</p>
-                </Jumbotron>
-                <div className="d-flex justify-content-center">
+            <div className="main">
+                    <h1>
+                        Mens Rea
+                    </h1>
+                    <h2>New User Registration</h2>>
+                <div className="content">
+                    <div className="content-sm">
                 <Form  onSubmit={this.submitRegister}>
                     <FormGroup row>
                         <Col sm={12}>
@@ -93,8 +92,10 @@ export class RegisterComponent extends React.Component<IRegisterProps, IRegister
                                 onChange={this.updateEmail} />
                         </Col>
                     </FormGroup>
-                    <Button color="secondary">Register</Button>
+                    <Button className="mr-button">Register</Button>
                 </Form>
+                <br/><br/>
+                </div>
                 </div>
                 <p>{this.props.registerMessage}</p>
             </div>
