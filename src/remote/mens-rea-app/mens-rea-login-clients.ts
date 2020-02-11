@@ -7,7 +7,7 @@ export const apiLogin = async (username: string, password: string) => {
             password: password
         })
         .then((response) => {
-            console.log(response);
+            console.log(response.data);
             
         }, (error) => {
             console.log(error);
