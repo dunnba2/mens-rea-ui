@@ -8,7 +8,7 @@ export const apiRegister = async (username: string, password: string, email: str
             email:email
         })
         .then((response) => {
-            console.log(response);
+            console.log(response.data);
         }, (error) => {
             console.log(error);
         })

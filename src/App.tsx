@@ -9,6 +9,7 @@ import  LoginComponent  from './components/login-component/LoginContainer';
 import RegisterComponent from './components/register-component/RegisterContainer';
 import { MediaBookComponent } from './components/media-component/MediaBookComponent';
 import { MediaVisualComponent } from "./components/media-component/MediaVisualComponent";
+import  ImdbSearchComponent  from './components/imdb-component/ImdbSearchContainer';
 
 
 const App: React.FC = () => {
@@ -22,6 +23,7 @@ const App: React.FC = () => {
             <Route path='/register' component={RegisterComponent}/>
             <Route path="/books" component={MediaBookComponent}/>
             <Route path="/moviesshows" component={MediaVisualComponent}/>
+            <Route path="/imdbsearch" component={ImdbSearchComponent}/>
           </Switch>
           
         </Router>

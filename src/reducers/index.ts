@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
 import { registerReducer } from "./register-reducer";
-
+import { imdbReducer } from "./imdb-search-reducer";
 
 export interface IUserState {
     currentUser:any
@@ -12,9 +12,16 @@ export interface IRegisterState {
     registerMessage:string
 }
 
+export interface IImdbSearchState {
+    imdbTitles:any[]
+    search:string
+    page:number
+}
+
 export interface IState {
     userState : IUserState
     registerState : IRegisterState
+    imdbState : IImdbSearchState
 }
 
 
@@ -22,6 +29,7 @@ export interface IState {
 // and turn them into one super reducer that represents all of state
 export const state = combineReducers<IState>({
     userState:loginReducer,
-    registerState:registerReducer
+    registerState:registerReducer,
+    imdbState:imdbReducer
    
 })

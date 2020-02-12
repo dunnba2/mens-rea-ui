@@ -1,4 +1,5 @@
 import React from "react";
+
 interface IMediaDisplayProps {
     title: string,
     creator: string,
