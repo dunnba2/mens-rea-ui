@@ -15,6 +15,7 @@ interface IImdbSearchProps {
     getNewPageImdbSearchTitles: (search: any, page: number) => void
     changeImdbSearchTitlesPage: (search: any, page: number) => void
     getMysteryTitles: () => void
+    getNextPageImdbSearch: (search: any, page: number) => void
 }
 
 export class ImdbSearchComponent extends React.Component<IImdbSearchProps, IImdbSearchState> {
@@ -35,13 +36,13 @@ export class ImdbSearchComponent extends React.Component<IImdbSearchProps, IImdb
 
     pageTurnForward = () => {
         this.props.changeImdbSearchTitlesPage(this.props.search, this.props.page + 1)
-        this.props.getNewPageImdbSearchTitles(this.props.search, this.props.page + 1)
+        this.props.getNextPageImdbSearch(this.props.search, this.props.page + 1)
     }
 
     pageTurnBackwards = () => {
         if (this.props.page > 1) {
             this.props.changeImdbSearchTitlesPage(this.props.search, this.props.page - 1)
-            this.props.getNewPageImdbSearchTitles(this.props.search, this.props.page - 1)
+            this.props.getNextPageImdbSearch(this.props.search, this.props.page - 1)
         }
     }
 

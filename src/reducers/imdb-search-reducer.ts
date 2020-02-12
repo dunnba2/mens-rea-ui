@@ -18,13 +18,21 @@ export const imdbReducer = (state = initialState, action:any) => {
         case imdbSearchTypes.NEW_PAGE_IMDB_SEARCH_TITLES: {
             return {
                 ...state,
-                imdbTitles:action.payload.imdbTitles
+                imdbTitles:action.payload.imdbTitles,
+                search:action.payload.search,
+                page:action.payload.page
             }
         }
         case imdbSearchTypes.INCREMENT_IMDB_SEARCH_TITLES_PAGE: {
             return {
                 ...state,
                 page:action.payload.page
+            }
+        }
+        case imdbSearchTypes.GET_NEXT_PAGE_SEARCH_TITLES:{
+            return {
+                ...state,
+                imdbTitles:action.payload.imdbTitles
             }
         }
         default:
