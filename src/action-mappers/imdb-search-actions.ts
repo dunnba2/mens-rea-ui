@@ -18,7 +18,7 @@ export const getMysteryTitles = () => async (dispatch:any) => {
     })
 }
 
-export const getNewPageImdbSearchTitles = (search:string, page:number) => async (dispatch:any) => {
+export const getNewPageImdbSearchTitles = (search:any, page:number) => async (dispatch:any) => {
     let titles = (await imdbSearch(search, page))
     dispatch({
         type: imdbSearchTypes.NEW_PAGE_IMDB_SEARCH_TITLES,
@@ -28,7 +28,7 @@ export const getNewPageImdbSearchTitles = (search:string, page:number) => async 
     })
 }
 
-export const changeImdbSearchTitlesPage = (search:string, page:number) => {
+export const changeImdbSearchTitlesPage = (search:any, page:number) => {
     return {
         type: imdbSearchTypes.INCREMENT_IMDB_SEARCH_TITLES_PAGE,
         payload:{
