@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText, Form, Input } from 'reactstrap';
 
 
 export const NavbarComponent = (props: any) => {
@@ -37,13 +37,16 @@ export const NavbarComponent = (props: any) => {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-
+                                        <Link to="/imdbsearch">IMDb Movies</Link>
                                     </DropdownItem>
                                     <DropdownItem>
 
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
+                            <Form>
+                                <Input type="text" id="search" placeholder="Search Titles"></Input>
+                            </Form>
                     </Nav>
                         <NavbarText>Mens Rea Mystery</NavbarText>
                 </Collapse>
