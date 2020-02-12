@@ -14,7 +14,7 @@ export interface IRegisterState {
 
 export interface IImdbSearchState {
     imdbTitles:any[]
-    search:string
+    search:any
     page:number
 }
 

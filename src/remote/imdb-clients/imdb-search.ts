@@ -7,8 +7,9 @@ export const imdbLoadPage = async () => {
     
 }
 
-export const imdbSearch = async (search: string, page: number) => {
+export const imdbSearch = async (search: any, page: number) => {
     let response = await imdbClient.get(`/?apikey=3c5059d4&s=${search}&page=${page}`)
+    console.log(response)
     return response.data.Search
 }
 
