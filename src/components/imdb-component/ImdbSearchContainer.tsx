@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { IState } from "../../reducers";
-import { changeImdbSearchTitlesPage, getNewPageImdbSearchTitles, getMysteryTitles } from "../../action-mappers/imdb-search-actions"
+import { changeImdbSearchTitlesPage, getNewPageImdbSearchTitles, getMysteryTitles, getNextPageImdbSearch } from "../../action-mappers/imdb-search-actions"
 import { ImdbSearchComponent } from "./ImdbSearchComponent";
 
 const mapStateToProps = (state:IState) => {
@@ -14,7 +14,8 @@ const mapStateToProps = (state:IState) => {
 const mapDispatchToProps = {
     getNewPageImdbSearchTitles,
     changeImdbSearchTitlesPage,
-    getMysteryTitles
+    getMysteryTitles,
+    getNextPageImdbSearch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImdbSearchComponent)
