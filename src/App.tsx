@@ -17,6 +17,7 @@ import { LandingComponent } from './components/landing-component/LandingComponen
 const App: React.FC = () => {
   return (
     <div className="App">
+      <link href="https://fonts.googleapis.com/css?family=Electrolize|Special+Elite&display=swap" rel="stylesheet"></link>
       <Provider store={store}>
         <Router>
           <NavbarComponent/>
