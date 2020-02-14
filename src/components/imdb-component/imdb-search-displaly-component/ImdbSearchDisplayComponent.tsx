@@ -15,13 +15,13 @@ export class ImdbSearchDisplayComponent extends React.PureComponent<IImdbDisplay
     render() {
         return (
             <div className="content-sm">
-                <img src={this.props.Poster}/>
+                <img src={this.props.Poster} className="imgdisp"/>
                 <h4>{this.props.Title}</h4>
-                <b>Released:</b> {this.props.Year}<br />
+                <p><b>Released:</b> {this.props.Year}<br />
                 
                 <br />
                 <button className="mr-button">Add to Library</button> <button className="mr-button">Add to Watch List</button><br />
-                <a href={`http://imdb.com/title/${this.props.imdbID}`} target="_blank" className="mr-button">View on IMDb</a>
+                <a href={`http://imdb.com/title/${this.props.imdbID}`} target="_blank" className="mr-button">View on IMDb</a></p>
                 
             </div>
         )

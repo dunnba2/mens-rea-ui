@@ -21,7 +21,7 @@ export class LandingComponent extends React.Component {
             </div>
             </div>
             <div className="paralax1"></div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/>
             </>
         )
     }
