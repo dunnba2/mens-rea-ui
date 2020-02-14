@@ -48,5 +48,5 @@ h2 {text-align:right;text-transform:lowercase;background:rgba(21, 17, 14, 0.85);
 .paralax2{background-image:url(https://images.pexels.com/photos/923681/pexels-photo-923681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);height:300px;background-attachment:fixed;background-position:center;background-repeat:no-repeat;background-size:cover;margin-top:25px;margin-bottom:25px;border-top:solid 10px #e2dcd4;border-bottom:solid 10px #e2dcd4;}
 h4 {color:#f4fef6;font-size:1.2em;letter-spacing:2px;padding-left:10px;padding-right:10px;}
 p::first-letter {color:#f4fef6;font-size:1.1em;font-weight:bold;}
-footer {background:#181310;color:#ae9e89;position: absolute;bottom:0;width:100%;}
+footer {background:#181310;color:#ae9e89;position: absolute;bottom:0;width:100%;position: fixed;}
 img {float: left; border-radius:15px;border: double 9px #181310;}
