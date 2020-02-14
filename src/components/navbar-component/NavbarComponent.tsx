@@ -10,7 +10,7 @@ export const NavbarComponent = (props: any) => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md">
+            <Navbar light expand="md" className="navstyler">
                 <NavbarBrand href="/">Mens Rea</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
@@ -19,11 +19,11 @@ export const NavbarComponent = (props: any) => {
                             <DropdownToggle nav caret>
                                 Sign-In
                             </DropdownToggle>
-                            <DropdownMenu center>
-                                <DropdownItem>
+                            <DropdownMenu left className="navdropdown">
+                                <DropdownItem className="navdropitem">
                                     <Link to='/login'>Login</Link>
                                 </DropdownItem>
-                                <DropdownItem>
+                                <DropdownItem className="navdropitem">
                                     <Link to='/register'>Register</Link>
                                 </DropdownItem>
                             </DropdownMenu>
@@ -35,11 +35,11 @@ export const NavbarComponent = (props: any) => {
                                 <DropdownToggle nav caret>
                                     Links
                                 </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
+                                <DropdownMenu left className="navdropdown">
+                                    <DropdownItem className="navdropitem">
                                         <Link to="/imdbsearch">IMDb Movies</Link>
                                     </DropdownItem>
-                                    <DropdownItem>
+                                    <DropdownItem className="navdropitem">
                                         <Link to="/submitnewmedia">Create a New Submission</Link>
                                     </DropdownItem>
                                 </DropdownMenu>
@@ -48,7 +48,7 @@ export const NavbarComponent = (props: any) => {
                                 <Input type="text" id="search" placeholder="Search Titles"></Input>
                             </Form>
                     </Nav>
-                        <NavbarText>Mens Rea Mystery</NavbarText>
+                        <NavbarText color="ae9e89">Mens Rea Mystery</NavbarText>
                 </Collapse>
             </Navbar>
         </div>
