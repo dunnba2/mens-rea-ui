@@ -40,7 +40,7 @@ export const NavbarComponent = (props: any) => {
                                         <Link to="/imdbsearch">IMDb Movies</Link>
                                     </DropdownItem>
                                     <DropdownItem>
-
+                                        <Link to="/submitnewmedia">Create a New Submission</Link>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
