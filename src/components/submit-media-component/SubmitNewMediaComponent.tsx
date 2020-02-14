@@ -115,7 +115,7 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
                                 type="text"
                                 name="year"
                                 id="year"
-                                placeholder="year"
+                                placeholder="Year"
                                 value={this.state.year}
                                 onChange={this.updateYear} />
                         </Col>
@@ -137,6 +137,7 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
                                 type="number"
                                 name="userrating"
                                 id="userrating"
+                                min="1" max="5"
                                 placeholder="User Rating"
                                 value={this.state.userRating}
                                 onChange={this.updateUserRating} />
@@ -149,7 +150,7 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
                             <option value='SHOW'>TV Show</option>
                         </Input>
                     </FormGroup>
-                    <Button className="mr-button">Register</Button>
+                    <Button className="mr-button">Submit</Button>
                 </Form>
                 <br/><br/>
                 </div>
