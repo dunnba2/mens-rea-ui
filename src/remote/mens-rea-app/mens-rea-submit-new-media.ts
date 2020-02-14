@@ -3,7 +3,7 @@ import { apiClient } from "."
 
 export const submitNewMedia = async (title: string, creator: string, year: string, mediaType: string, userRating: number, targetAudience: string) => {
     try {
-        let response = await apiClient.post('/media/submit', {
+        let response = await apiClient.post(`/media/${mediaType}`, {
             title: title,
             creator: creator,
             year: year,
