@@ -43,35 +43,37 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
     render() {
         return (
             <div className="main">
-                    <h1>Mens Rea</h1>
-                    <h2>Please Log In</h2>
+                <h1>Mens Rea</h1>
+                <h2>Please Log In</h2>
                 <div className="content">
-                <Form  onSubmit={this.submitLogin}>
-                    <FormGroup row>
-                        <Col sm={12}>
-                            <Input required
-                                type="text"
-                                name="Username"
-                                id="exampleUsername"
-                                placeholder="Username"
-                                value={this.state.username}
-                                onChange={this.updateUsername} />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup row >
-                        <Col sm={12}>
-                            <Input required
-                                type="password"
-                                name="password"
-                                id="examplePassword"
-                                placeholder="Password"
-                                value={this.state.password}
-                                onChange={this.updatePassword} />
-                        </Col>
-                    </FormGroup>
-                    <Button className="mr-button">Login</Button>
-                </Form>
-                <br/><br/>
+                    <div className="content-sm">
+                        <Form onSubmit={this.submitLogin}>
+                            <FormGroup row>
+                                <Col sm={12}>
+                                    <Input required
+                                        type="text"
+                                        name="Username"
+                                        id="exampleUsername"
+                                        placeholder="Username"
+                                        value={this.state.username}
+                                        onChange={this.updateUsername} />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row >
+                                <Col sm={12}>
+                                    <Input required
+                                        type="password"
+                                        name="password"
+                                        id="examplePassword"
+                                        placeholder="Password"
+                                        value={this.state.password}
+                                        onChange={this.updatePassword} />
+                                </Col>
+                            </FormGroup>
+                            <Button className="mr-button">Login</Button>
+                        </Form>
+                        <br /><br />
+                    </div>
                 </div>
                 <p>{this.props.loginMessage}</p>
             </div>
