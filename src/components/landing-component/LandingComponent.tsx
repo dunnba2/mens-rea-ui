@@ -1,43 +1,46 @@
 import React from "react";
 
 interface ILandingProps {
-    user:any,
-    IDreamstate:any[]
+    user: any,
+    iDreamBooks: any[],
+    getRecommendedTitles: () => void
 }
 
 interface ILandingState {
-    position:number,
-    feature:any
+    position: number,
+    feature: any
 }
 
-export class LandingComponent extends React.Component<ILandingProps,ILandingState> {
-    constructor(props:any) {
+export class LandingComponent extends React.Component<ILandingProps, ILandingState> {
+    constructor(props: any) {
         super(props)
         this.state = {
-            position:0,
-            feature:null
+            position: 0,
+            feature: null
         }
     }
-    componentDidMount() {
-        if (this.props.IDreamstate.length===0) {
-            //a method call will go here.
-        }
-        this.getPos();
-        this.setFeature();
-    }
-    getPos=()=>{
-        let pos=Math.floor(Math.random() * 25) + 1;
-        pos-=1;
+    getPos = () => {
+        let pos = Math.floor(Math.random() * 25) + 1;
+        pos -= 1;
         this.setState({
             ...this.state,
             position: pos
         })
     }
-    setFeature=()=>{
+    setFeature = () => {
         this.setState({
             ...this.state,
-            feature:this.props.IDreamstate[this.state.position]
+            feature: this.props.iDreamBooks[this.state.position]
         })
+    }
+    componentWillMount() {
+        console.log("For some reason, this still has to be will mount...")
+        this.props.getRecommendedTitles();
+        console.log(this.props.iDreamBooks)
+        this.getPos();
+        console.log(this.state.position)
+        this.setFeature();
+        console.log(this.state.feature)
     }
     render() {
         return (
@@ -57,17 +60,17 @@ export class LandingComponent extends React.Component<ILandingProps,ILandingStat
                             look at the features available exclusively to our registered users.
                         </p>
                         <button className="mr-button">Media Search</button> <button className="mr-button">IMDb Search</button>
-                        <br/><br/>
+                        <br /><br />
                     </div>
                 </div>
                 <div className="paralax2"></div>
                 <div className="main">
                     <div className="content">
                         <div className="content-sm">
-                            <h4>Mystery Feature:<br/>
-                            {this.state.feature.title} by {this.state.feature.author}</h4>
-                            <p><i>{this.state.feature.review_snippet}</i><br/>
-                            <a href={this.state.feature.review_link} target="_blank">{this.state.feature.review_publication_name}, {this.state.feature.review_date}</a></p>
+                            <h4>Mystery Feature:<br />
+                                {this.state.feature.title} by {this.state.feature.author}</h4>
+                            <p><i>{this.state.feature.review_snippet}</i><br />
+                                <a href={this.state.feature.review_link} target="_blank">{this.state.feature.review_publication_name}, {this.state.feature.review_date}</a></p>
                         </div>
                         <div className="content-sm">
                             <h4>Stay a little while...</h4>
