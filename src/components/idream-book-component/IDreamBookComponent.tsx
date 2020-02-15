@@ -1,14 +1,15 @@
 import React from "react";
+import { IDreamBookDisplayComponent } from "./idream-book-display-component/IDreamBookDisplayComponent";
 
 interface ILandingProps {
-    user: any,
-    iDreamBooks: any[],
+    user: any
+    iDreamBooks: any[]
     getRecommendedTitles: () => void
 }
 
 interface ILandingState {
-    position: number,
-    feature: any
+    position: number
+
 }
 
 export class LandingComponent extends React.Component<ILandingProps, ILandingState> {
@@ -16,7 +17,7 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
         super(props)
         this.state = {
             position: 0,
-            feature: null
+            // feature: null
         }
     }
     getPos = () => {
@@ -27,22 +28,34 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
             position: pos
         })
     }
-    setFeature = () => {
-        this.setState({
-            ...this.state,
-            feature: this.props.iDreamBooks[this.state.position]
-        })
-    }
-    componentWillMount() {
+    // setFeature = () => {
+    //     this.setState({
+    //         ...this.state,
+    //         feature: this.props.iDreamBooks[this.state.position]
+    //     })
+    // }
+    componentDidMount() {
         console.log("For some reason, this still has to be will mount...")
-        this.props.getRecommendedTitles();
+        if (this.props.iDreamBooks.length === 0) {
+            this.props.getRecommendedTitles()
+        }
+
         console.log(this.props.iDreamBooks)
         this.getPos();
         console.log(this.state.position)
-        this.setFeature();
-        console.log(this.state.feature)
+        // this.setFeature();
+        // console.log(this.state.feature)
     }
     render() {
+        const displayBook: IDreamBookDisplayComponent[] = this.props.iDreamBooks.map<any>((book: any) => {
+            return <IDreamBookDisplayComponent title={book.title}
+                author={book.author}
+                review_snippet={book.review_snippet}
+                review_link={book.review_link}
+                review_publication_name={book.review_publication_name}
+                review_date={book.review_date}
+            />
+        })
         return (
             <>
                 <div className="main">
@@ -66,12 +79,7 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
                 <div className="paralax2"></div>
                 <div className="main">
                     <div className="content">
-                        <div className="content-sm">
-                            <h4>Mystery Feature:<br />
-                                {this.state.feature.title} by {this.state.feature.author}</h4>
-                            <p><i>{this.state.feature.review_snippet}</i><br />
-                                <a href={this.state.feature.review_link} target="_blank">{this.state.feature.review_publication_name}, {this.state.feature.review_date}</a></p>
-                        </div>
+                        {displayBook[this.state.position]}
                         <div className="content-sm">
                             <h4>Stay a little while...</h4>
                             <p>This is where we sell the site!</p>

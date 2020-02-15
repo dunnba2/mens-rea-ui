@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { ImdbSearchDisplayComponent } from './imdb-search-displaly-component/ImdbSearchDisplayComponent';
-import { Card, Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup, Button } from 'reactstrap';
+import { Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup, Button } from 'reactstrap';
 
 interface IImdbSearchState {
     search: any
