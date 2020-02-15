@@ -18,10 +18,13 @@ export interface IImdbSearchState {
     page:number
 }
 
+
+
 export interface IState {
     userState : IUserState
     registerState : IRegisterState
     imdbState : IImdbSearchState
+    
 }
 
 
