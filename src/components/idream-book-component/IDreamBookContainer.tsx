@@ -1,15 +1,15 @@
 import {connect} from "react-redux";
-import { LandingComponent } from "./LandingComponent";
+import { LandingComponent } from "./IDreamBookComponent";
 import { IState } from "../../reducers";
-import {getRecommendedTitles} from "../../action-mappers/dream-books-actions"
+import {getRecommendedTitles} from "../../action-mappers/idream-book-actions"
 
-const mapStateToProps=(state:IState)=> {
+const mapStateToProps = (state:IState) => {
     return {
         iDreamBooks:state.iDreamState.iDreamBooks,
         user:state.userState.currentUser        
     }
 }
-const mapDispatchToProps={
+const mapDispatchToProps = {
     getRecommendedTitles    
 }
 

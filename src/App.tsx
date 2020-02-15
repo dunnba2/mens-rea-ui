@@ -11,7 +11,7 @@ import { MediaBookComponent } from './components/media-component/MediaBookCompon
 import { MediaVisualComponent } from "./components/media-component/MediaVisualComponent";
 import  ImdbSearchComponent  from './components/imdb-component/ImdbSearchContainer';
 import { SubmitNewMediaComponent } from './components/submit-media-component/SubmitNewMediaComponent';
-import { LandingComponent } from './components/landing-component/LandingComponent';
+import  IDreamBookComponent  from './components/idream-book-component/IDreamBookContainer';
 
 
 const App: React.FC = () => {
@@ -28,7 +28,7 @@ const App: React.FC = () => {
             <Route path="/moviesshows" component={MediaVisualComponent}/>
             <Route path="/imdbsearch" component={ImdbSearchComponent}/>
             <Route path="/submitnewmedia" component={SubmitNewMediaComponent}/>
-            <Route path="/" component={LandingComponent}/>
+            <Route path="/" component={IDreamBookComponent}/>
           </Switch>
           
         </Router>

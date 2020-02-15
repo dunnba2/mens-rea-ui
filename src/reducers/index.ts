@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
 import { registerReducer } from "./register-reducer";
 import { imdbReducer } from "./imdb-search-reducer";
-import { iDreamStateReducer } from "./iDreamStateReducer";
+import { iDreamStateReducer } from "./idream-state-reducer";
 
 export interface IUserState {
     currentUser:any
