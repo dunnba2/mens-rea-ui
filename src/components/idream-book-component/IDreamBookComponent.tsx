@@ -1,45 +1,61 @@
 import React from "react";
+import { IDreamBookDisplayComponent } from "./idream-book-display-component/IDreamBookDisplayComponent";
 
 interface ILandingProps {
-    user:any,
-    IDreamstate:any[]
+    user: any
+    iDreamBooks: any[]
+    getRecommendedTitles: () => void
 }
 
 interface ILandingState {
-    position:number,
-    feature:any
+    position: number
+
 }
 
-export class LandingComponent extends React.Component<ILandingProps,ILandingState> {
-    constructor(props:any) {
+export class LandingComponent extends React.Component<ILandingProps, ILandingState> {
+    constructor(props: any) {
         super(props)
         this.state = {
-            position:0,
-            feature:null
+            position: 0,
+            // feature: null
         }
     }
-    componentDidMount() {
-        if (this.props.IDreamstate.length===0) {
-            //a method call will go here.
-        }
-        this.getPos();
-        this.setFeature();
-    }
-    getPos=()=>{
-        let pos=Math.floor(Math.random() * 25) + 1;
-        pos-=1;
+    getPos = () => {
+        let pos = Math.floor(Math.random() * 25) + 1;
+        pos -= 1;
         this.setState({
             ...this.state,
             position: pos
         })
     }
-    setFeature=()=>{
-        this.setState({
-            ...this.state,
-            feature:this.props.IDreamstate[this.state.position]
-        })
+    // setFeature = () => {
+    //     this.setState({
+    //         ...this.state,
+    //         feature: this.props.iDreamBooks[this.state.position]
+    //     })
+    // }
+    componentDidMount() {
+        console.log("For some reason, this still has to be will mount...")
+        if (this.props.iDreamBooks.length === 0) {
+            this.props.getRecommendedTitles()
+        }
+
+        console.log(this.props.iDreamBooks)
+        this.getPos();
+        console.log(this.state.position)
+        // this.setFeature();
+        // console.log(this.state.feature)
     }
     render() {
+        const displayBook: IDreamBookDisplayComponent[] = this.props.iDreamBooks.map<any>((book: any) => {
+            return <IDreamBookDisplayComponent title={book.title}
+                author={book.author}
+                review_snippet={book.review_snippet}
+                review_link={book.review_link}
+                review_publication_name={book.review_publication_name}
+                review_date={book.review_date}
+            />
+        })
         return (
             <>
                 <div className="main">
@@ -57,18 +73,13 @@ export class LandingComponent extends React.Component<ILandingProps,ILandingStat
                             look at the features available exclusively to our registered users.
                         </p>
                         <button className="mr-button">Media Search</button> <button className="mr-button">IMDb Search</button>
-                        <br/><br/>
+                        <br /><br />
                     </div>
                 </div>
                 <div className="paralax2"></div>
                 <div className="main">
                     <div className="content">
-                        <div className="content-sm">
-                            <h4>Mystery Feature:<br/>
-                            {this.state.feature.title} by {this.state.feature.author}</h4>
-                            <p><i>{this.state.feature.review_snippet}</i><br/>
-                            <a href={this.state.feature.review_link} target="_blank">{this.state.feature.review_publication_name}, {this.state.feature.review_date}</a></p>
-                        </div>
+                        {displayBook[this.state.position]}
                         <div className="content-sm">
                             <h4>Stay a little while...</h4>
                             <p>This is where we sell the site!</p>
