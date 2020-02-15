@@ -1,5 +1,6 @@
 import React from "react";
 import { IDreamBookDisplayComponent } from "./idream-book-display-component/IDreamBookDisplayComponent";
+import { Link } from "react-router-dom";
 
 interface ILandingProps {
     user: any
@@ -72,7 +73,7 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
                             collection, and read reviews from our registered users, or, if you'd like to explore the full range of features we offer, scroll further for a closer
                             look at the features available exclusively to our registered users.
                         </p>
-                        <button className="mr-button">Media Search</button> <button className="mr-button">IMDb Search</button>
+                        <button className="mr-button">Media Search</button> <Link to="/imdbsearch" className="mr-button">IMDb Search</Link>
                         <br /><br />
                     </div>
                 </div>
