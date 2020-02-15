@@ -36,7 +36,6 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
     //     })
     // }
     componentDidMount() {
-        console.log("For some reason, this still has to be will mount...")
         if (this.props.iDreamBooks.length === 0) {
             this.props.getRecommendedTitles()
         }
@@ -83,7 +82,16 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
                         {displayBook[this.state.position]}
                         <div className="content-sm">
                             <h4>Stay a little while...</h4>
-                            <p>This is where we sell the site!</p>
+                            <p>Members on Mens Rea are invited to share their thoughts on their favourite (or least favourite!) movies, shows, and books, can issue recommendations
+                                 to other users, and have access to the ability to create robust watch lists to keep track of media they would like to see, as well as extensive
+                                 libraries to showcase everything they already have.
+                            </p>
+                            <p>Already a member?  Login or visit your watch list or library here!</p>
+                            <button className="mr-button">Watch List</button><button className="mr-button">Library</button><Link to="/login" className="mr-button">Login</Link>
+                            <br/><br/><br/>
+                            <p>Not a member yet?  Consider joining us to get access to all of our features!</p>
+                            <Link to="/register" className="mr-button">Register</Link>
+                            <br/><br/>
                         </div>
                     </div>
                 </div>
