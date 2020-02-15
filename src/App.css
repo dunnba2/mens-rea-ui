@@ -51,6 +51,8 @@ p::first-letter {color:#f4fef6;font-size:1.1em;font-weight:bold;}
 footer {background:#181310;color:#ae9e89;position: absolute;bottom:0;width:100%;position: fixed;font-family: 'Special Elite', cursive;}
 .imgdisp {float: left; border-radius:15px;border: double 9px #181310;width:200px;margin-right:15px;}
 p {text-align:justify;font-family: 'Electrolize', sans-serif;}
+p a {color: #e2dcd4;text-decoration:none;font-weight:bold;}
+p a:hover {color:#f4fef6;text-decoration:none;transition:1s;letter-spacing:1px;}
 .navstyler {background:#181310;color:#ae9e89 !important;position: absolute !important;top:0;width:100% !important;position: fixed !important;}
 .navstyler a {color:#ae9e89 !important;text-decoration: none;font-family: 'Special Elite', cursive;}
 .navstyler a:hover {color:#f4fef6 !important;font-weight:bold;letter-spacing:3px;transition: 1s;text-decoration: none;}

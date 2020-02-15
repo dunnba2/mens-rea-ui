@@ -3,6 +3,7 @@ import { loginReducer } from "./login-reducer";
 import { registerReducer } from "./register-reducer";
 import { imdbReducer } from "./imdb-search-reducer";
 import { iDreamStateReducer } from "./idream-state-reducer";
+import {mediaReducer} from "./media-reducer";
 
 export interface IUserState {
     currentUser:any
@@ -22,11 +23,20 @@ export interface IImdbSearchState {
 export interface IDreamState {
     iDreamBooks:any[]
 }
+
+export interface IMediaState {
+    searchResults:any[],
+    searchTerm:string,
+    page:number,
+    type: any
+}
+
 export interface IState {
     userState : IUserState
     registerState : IRegisterState
     imdbState : IImdbSearchState
     iDreamState: IDreamState
+    iMediaState: IMediaState
 }
 
 
@@ -36,5 +46,6 @@ export const state = combineReducers<IState>({
     userState:loginReducer,
     registerState:registerReducer,
     imdbState:imdbReducer,
-    iDreamState:iDreamStateReducer
+    iDreamState:iDreamStateReducer,
+    iMediaState:mediaReducer
 })
