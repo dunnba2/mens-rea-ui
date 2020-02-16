@@ -1,8 +1,6 @@
 import { IRegisterState } from ".";
 import { registerTypes } from "../action-mappers/register-actions";
 
-
-
 const initialState:IRegisterState = {
     registerMessage: ''
 }
