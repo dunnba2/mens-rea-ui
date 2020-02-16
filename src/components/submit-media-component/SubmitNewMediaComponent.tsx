@@ -152,9 +152,10 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
                                 <h4>Media Type</h4>
                                 <Col sm={12}>
                                     <Input type="select" name="select" id="mediatype" value={this.state.mediaType} onChange={this.udpateMediaType}>
-                                        <option value='BOOK'>Book</option>
-                                        <option value='MOVIE'>Movie</option>
-                                        <option value='SHOW'>TV Show</option>
+                                        <option >Choose an Option</option>
+                                        <option value='Book'>Book</option>
+                                        <option value='Movie'>Movie</option>
+                                        <option value='Show'>TV Show</option>
                                     </Input>
                                 </Col>
                             </FormGroup>
