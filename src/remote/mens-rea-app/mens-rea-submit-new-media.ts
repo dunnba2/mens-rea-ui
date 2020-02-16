@@ -8,10 +8,9 @@ export const submitNewMedia = async (title: string, creator: string, year: strin
             creator: creator,
             year: year,
             targetAudience: targetAudience,
-            userRating: userRating,
-            mediaType: mediaType
+            userRating: userRating
         })
-        if (response.status === 201) {
+        if (response.status === 201 || response.status === 200) {
             return {
                 submissionMessage: `Your ${mediaType} submission was successful`
             }
