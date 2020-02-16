@@ -7,11 +7,20 @@ export const apiRegister = async (username: string, password: string, email: str
             password: password,
             email:email
         })
-        .then((response) => {
+        if(response.status === 200 || response.status === 201) {
             console.log(response);
-        }, (error) => {
-            console.log(error);
-        })
+            return {
+                registerMessage: "You've been registered with Mens Rea"
+            } 
+        }else if(response.status === 401) {
+            return {
+                registerMessage: "That username is already taken"
+            }
+        }else {
+            return {
+                registerMessage: "Something went wrong"
+            }
+        }
     }catch (e) {
         console.log(e);
         return {

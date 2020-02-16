@@ -6,13 +6,22 @@ export const apiLogin = async (username: string, password: string) => {
             username: username,
             password: password
         })
-        .then((response) => {
-            console.log(response);
-            
-        }, (error) => {
-            console.log(error);
-            
-        })
+        if (response.status === 200) {
+            const body = await response.data
+            console.log(response.data);
+            return {
+                body,
+                loginMessage: 'Login Successful'
+            }  
+        }else if (response.status === 401) {
+            return {
+                loginMessage: "Invalid Credentials"
+            }
+        }else {
+            return {
+                loginMessage: "Something went wrong"
+            }
+        }
     }catch (e) {
         console.log(e);
         return {
