@@ -26,14 +26,31 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
             type:null
         }
     }
+    componentDidMount() {
+        console.log("In componentDidMount")
+        console.log(this.props.searchResults.length)
+        if (this.props.searchResults.length === 0) {
+            console.log("Calling getAllMedia()")
+            this.props.getAllMedia()
+        }
+    }
     render() {
+        const displayList:MediaDisplayComponent[]=this.props.searchResults.map<any>((list:any)=>{
+            return <MediaDisplayComponent title={list.title}
+                year={list.year}
+                creator={list.creator}
+                media_type={list.MEDIA_TYPE}
+                key={list.mediaID}
+                targetaudience={list.targetaudience}
+                userrating={list.userrating}
+            />
+        })
         return(
             <div className="main">
                 <h1>Mens Rea</h1>
                 <h2>Search our media database</h2>
                 <div className="content">
-                    <div className="content-sm"><h4>THIS PAGE ISN'T DONE YET!  YAY!</h4>
-                    <p>Everything is broken forever.</p></div>
+                    {displayList}
                 </div>
             </div>
         )

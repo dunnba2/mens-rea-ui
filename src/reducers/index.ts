@@ -36,7 +36,7 @@ export interface IState {
     registerState : IRegisterState
     imdbState : IImdbSearchState
     iDreamState: IDreamState
-    iMediaState: IMediaState
+    mediaState: IMediaState
 }
 
 
@@ -47,5 +47,5 @@ export const state = combineReducers<IState>({
     registerState:registerReducer,
     imdbState:imdbReducer,
     iDreamState:iDreamStateReducer,
-    iMediaState:mediaReducer
+    mediaState:mediaReducer
 })
