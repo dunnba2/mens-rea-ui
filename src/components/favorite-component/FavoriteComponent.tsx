@@ -2,27 +2,31 @@ import React from "react";
 // import mediaDisplay
 
 
-interface IFavoriteState{ //
-    limit:number
-    offset:number
+interface IFavoriteState{
+    id: number
 }
 
 interface IFavoriteProps{
-    user:any
-    allFavorite:any[]
-    getAllFavorite:(l:number, o:number) => void
+    user: any
+    favorites: any[]
+    getAllFavoriteList: (id:number) => void //almost complete
+    getAllFavoritesByType:(id:number, type:string) => void
+    removeItemFromFavorite:() => void
+
 }
 
-export class FavoriteComponent extends React.Component {
+export class FavoriteComponent extends React.Component<IFavoriteProps, IFavoriteState> {
     constructor(props:any){
         super(props)
         this.state = {
-            //use media display to render page??
+            id: 0 // this may need to change
         }
     }
     
     
     render() {
+        const displayFavs: displayComponentHere
+
         return(
             <div className="favorite">
                 {
