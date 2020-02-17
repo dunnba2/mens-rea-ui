@@ -8,7 +8,7 @@ export const loginTypes = {
 
 export const updateCurrentUser = (username:string, password:string) => async (dispatch:any) => {
     let response:any = await apiLogin(username,password)
-    if(response.body){
+    if(response){
         dispatch({
             type:loginTypes.SUCCESSFUL_LOGIN,
             payload:{

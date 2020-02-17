@@ -77,6 +77,18 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
         })
     }
 
+    resetFields = () => {
+        this.setState({
+            ...this.state,
+            title: '',
+            creator: '',
+            year: '',
+            targetAudience: '',
+            userRating: 0,
+            mediaType: ''
+        })
+    }
+
     render() {
         return (
             <div className="main">
@@ -86,7 +98,7 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
                 <h2>Submit New Media</h2>>
                 <div className="content">
                     <div className="content-sm">
-                        <Form onSubmit={this.submitMedia}>
+                        <Form id="newmedia" onSubmit={this.submitMedia}>
                             <FormGroup row>
                                 <h4>Media Title</h4>
                                 <Col sm={12}>
@@ -152,18 +164,20 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
                                 <h4>Media Type</h4>
                                 <Col sm={12}>
                                     <Input type="select" name="select" id="mediatype" value={this.state.mediaType} onChange={this.udpateMediaType}>
-                                        <option value='BOOK'>Book</option>
-                                        <option value='MOVIE'>Movie</option>
-                                        <option value='SHOW'>TV Show</option>
+                                        <option >Choose an Option</option>
+                                        <option value='Book'>Book</option>
+                                        <option value='Movie'>Movie</option>
+                                        <option value='Show'>TV Show</option>
                                     </Input>
                                 </Col>
                             </FormGroup>
-                            <Button className="mr-button">Submit</Button>
+                            <Button onSubmit={this.resetFields} className="mr-button">Submit</Button>
                         </Form>
                         <br /><br />
                     </div>
+                    <p>{this.state.submissionMessage}</p>
                 </div>
-                <p>{this.state.submissionMessage}</p>
+                
             </div>
         )
     }

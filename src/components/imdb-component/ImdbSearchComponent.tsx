@@ -23,8 +23,8 @@ export class ImdbSearchComponent extends React.Component<IImdbSearchProps, IImdb
     constructor(props: any) {
         super(props)
         this.state = {
-           search: '',
-           page:1
+            search: '',
+            page: 1
         }
     }
 
@@ -51,7 +51,7 @@ export class ImdbSearchComponent extends React.Component<IImdbSearchProps, IImdb
         this.props.getNewPageImdbSearchTitles(this.state.search, newPage)
         this.setState({
             ...this.state,
-            page:newPage
+            page: newPage
         })
     }
 
@@ -74,29 +74,33 @@ export class ImdbSearchComponent extends React.Component<IImdbSearchProps, IImdb
         })
 
         return (
-            <div className="content">
-                <div>
-                    <Form inline>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Input type="text" 
-                            id="imdbSearch" 
-                            placeholder="Search Titles"
-                            value={this.state.search}
-                            onChange={this.updateSearch} />
-                        </FormGroup>
-                        <Button onClick={this.newSearchPage}>Search</Button>
-                    </Form>
-                </div>
-                {displayList}
+            <div className="main">
+                <h1>Mens Rea</h1>
+                <h2>Search content on IMDb</h2>
+                <div className="content">
+                    <div>
+                        <Form inline>
+                            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                <Input type="text"
+                                    id="imdbSearch"
+                                    placeholder="Search Titles"
+                                    value={this.state.search}
+                                    onChange={this.updateSearch} />
+                            </FormGroup>
+                            <Button onClick={this.newSearchPage} className="mr-button">Search</Button>
+                        </Form>
+                    </div>
+                    {displayList}
 
-                <Pagination aria-label="Page navigation example">
-                    <PaginationItem disabled={this.props.page === 1} onClick={this.pageTurnBackwards}>
-                        <PaginationLink previous />
-                    </PaginationItem>
-                    <PaginationItem onClick={this.pageTurnForward}>
-                        <PaginationLink next />
-                    </PaginationItem>
-                </Pagination>
+                    <Pagination aria-label="Page navigation example">
+                        <PaginationItem disabled={this.props.page === 1} onClick={this.pageTurnBackwards}>
+                            <PaginationLink previous className="mr-button"/>
+                        </PaginationItem>
+                        <PaginationItem onClick={this.pageTurnForward}>
+                            <PaginationLink next className="mr-button"/>
+                        </PaginationItem>
+                    </Pagination>
+                </div>
             </div>
         )
     }
