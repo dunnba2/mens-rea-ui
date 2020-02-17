@@ -1,7 +1,5 @@
 import React, { SyntheticEvent } from 'react';
 import { Form, FormGroup, Col, Input, Button } from 'reactstrap';
-import { Redirect } from 'react-router';
-// import './LoginComponent.css'
 
 interface ILoginState {
     username: string
@@ -14,7 +12,7 @@ interface ILoginProps {
     loggedIn: boolean
 }
 
-export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
+export class LoginComponent extends React.Component<any, ILoginState> {
     constructor(props: any) {
         super(props)
         this.state = {
@@ -40,6 +38,12 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault()
         this.props.updateCurrentUser(this.state.username, this.state.password)
+
+        // let { from } = this.props.location.state || { from: {pathname: "/"}}
+
+        if (this.props.loggedIn) {
+            this.props.history.push("/")
+        }
     }
 
     render() {
@@ -78,8 +82,6 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
                     </div>
                 </div>
                 <p>{this.props.loginMessage}</p>}
-                {/* {this.props.loggedIn ? <Redirect to="/"/> : <p>{this.props.loginMessage}</p>} */}
-                
             </div>
         )
     }
