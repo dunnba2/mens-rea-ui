@@ -8,6 +8,7 @@ import { iFavoriteStateReducer } from "./favorite-state-reducer";
 export interface IUserState {
     currentUser:any
     loginMessage:string
+    loggedIn:boolean
 }
 
 export interface IMediaState{
