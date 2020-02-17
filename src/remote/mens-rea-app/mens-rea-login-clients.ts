@@ -22,8 +22,8 @@ export const apiLogin = async (username: string, password: string) => {
                 loginMessage: "Something went wrong"
             }
         }
-    }catch (e) {
-        console.log(e);
+    }catch (error) {
+        console.log(error);
         return {
             loginMessage: "Something Went Wrong"
         }

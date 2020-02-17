@@ -23,14 +23,14 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         }
     }
     creatorSet = () => {
-        if (this.props.media_type == "BOOK") {
+        if (this.props.media_type === "BOOK") {
             this.setState({
                 creatortype: "Author",
                 shopsrc: "Amazon",
                 imgsrc:"https://cdnw.nickpic.host/s80vee.png"
             });
         }
-        else if (this.props.media_type=="MOVIE"){
+        else if (this.props.media_type==="MOVIE"){
             this.setState({
                 creatortype: "Director",
                 shopsrc: "IMDB",
@@ -46,7 +46,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         }
     }
     ratingRule=()=>{
-        if (this.props.media_type!="BOOK") {
+        if (this.props.media_type!=="BOOK") {
             return `<b>Rated:</b> {this.props.targetaudience}<br />`
         }
     }
@@ -54,7 +54,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         return (
             <div className="content-sm">
                 {this.creatorSet}
-                <img src={this.state.imgsrc} className="imgdisp"/>
+                <img src={this.state.imgsrc} className="imgdisp" alt=""/>
                 <h4>{this.props.title}</h4>
                 {this.props.userrating}<br />
                 <b>Released:</b> {this.props.year}<br />

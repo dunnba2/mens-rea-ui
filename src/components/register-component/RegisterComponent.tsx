@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import { Jumbotron, Form, FormGroup, Col, Input, Button } from "reactstrap";
+import { Form, FormGroup, Col, Input, Button } from "reactstrap";
 
 
 interface IRegisterState {

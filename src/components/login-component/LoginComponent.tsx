@@ -1,5 +1,6 @@
 import React, { SyntheticEvent } from 'react';
-import { Form, FormGroup, Jumbotron, Label, Col, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Col, Input, Button } from 'reactstrap';
+import { Redirect } from 'react-router';
 // import './LoginComponent.css'
 
 interface ILoginState {
@@ -10,6 +11,7 @@ interface ILoginState {
 interface ILoginProps {
     updateCurrentUser: (u: string, p: string) => void
     loginMessage: string
+    loggedIn: boolean
 }
 
 export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
@@ -75,7 +77,9 @@ export class LoginComponent extends React.Component<ILoginProps, ILoginState> {
                         <br /><br />
                     </div>
                 </div>
-                <p>{this.props.loginMessage}</p>
+                <p>{this.props.loginMessage}</p>}
+                {/* {this.props.loggedIn ? <Redirect to="/"/> : <p>{this.props.loginMessage}</p>} */}
+                
             </div>
         )
     }
