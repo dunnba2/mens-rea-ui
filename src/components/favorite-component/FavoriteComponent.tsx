@@ -25,7 +25,7 @@ export class FavoriteComponent extends React.Component<IFavoriteProps, IFavorite
     
     
     render() {
-        const displayFavs: displayComponentHere
+        const displayFavs: displayComponentHere // fix here
 
         return(
             <div className="favorite">

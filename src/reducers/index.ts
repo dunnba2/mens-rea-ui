@@ -4,6 +4,7 @@ import { registerReducer } from "./register-reducer";
 import { imdbReducer } from "./imdb-search-reducer";
 import { iDreamStateReducer } from "./idream-state-reducer";
 import { iFavoriteStateReducer } from "./favorite-state-reducer";
+import { mediaReducer } from "./media-reducer";
 
 export interface IUserState {
     currentUser:any
@@ -11,8 +12,11 @@ export interface IUserState {
     loggedIn:boolean
 }
 
-export interface IMediaState{
-    currentMedia:any
+export interface IMediaState{ //Here media-reducer 
+    searchResults:any[],
+    searchTerm:string,
+    page:number,
+    type:any
 }
 
 export interface IRegisterState {
@@ -50,5 +54,5 @@ export const state = combineReducers<IState>({
     imdbState:imdbReducer,
     iDreamState:iDreamStateReducer,
     iFavoriteState:iFavoriteStateReducer,
-    mediaState:iMediaStateReducer
+    mediaState:mediaReducer   //media reducer to state
 })
