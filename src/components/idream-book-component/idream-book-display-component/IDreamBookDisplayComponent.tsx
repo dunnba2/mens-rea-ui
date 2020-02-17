@@ -14,11 +14,11 @@ export class IDreamBookDisplayComponent extends React.PureComponent<IDreamBookDi
     render() {
         return (
             <div className="content-sm">
-                <img src="https://cdnw.nickpic.host/s80vee.png" className="imgdisp"/>
+                <img src="https://cdnw.nickpic.host/s80vee.png" className="imgdisp" alt=""/>
                 <h4>Mystery Feature:<br />
                     {this.props.title}<br/>by {this.props.author}</h4>
                 <p><i>{this.props.review_snippet}</i><br /><br/>
-                    <a href={this.props.review_link} target="_blank">{this.props.review_publication_name}, {this.props.review_date}</a></p>
+                    <a href={this.props.review_link} target="_blank" rel="noopener noreferrer">{this.props.review_publication_name}, {this.props.review_date}</a></p>
            </div>
         )
     }

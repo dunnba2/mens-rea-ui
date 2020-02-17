@@ -29,23 +29,14 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
             position: pos
         })
     }
-    // setFeature = () => {
-    //     this.setState({
-    //         ...this.state,
-    //         feature: this.props.iDreamBooks[this.state.position]
-    //     })
-    // }
+
     componentDidMount() {
         if (this.props.iDreamBooks.length === 0) {
             this.props.getRecommendedTitles()
         }
-
-        console.log(this.props.iDreamBooks)
         this.getPos();
-        console.log(this.state.position)
-        // this.setFeature();
-        // console.log(this.state.feature)
     }
+
     render() {
         const displayBook: IDreamBookDisplayComponent[] = this.props.iDreamBooks.map<any>((book: any) => {
             return <IDreamBookDisplayComponent title={book.title}

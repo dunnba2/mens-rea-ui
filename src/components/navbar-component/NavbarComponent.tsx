@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText, Form, Input } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
 
 
 export const NavbarComponent = (props: any) => {
@@ -11,7 +11,11 @@ export const NavbarComponent = (props: any) => {
     return (
         <div>
             <Navbar light expand="md" className="navstyler">
-                <NavbarBrand href="/">Mens Rea</NavbarBrand>
+                <NavbarBrand>
+                    <Link to="/">
+                        Mens Rea
+                    </Link>
+                </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
@@ -27,30 +31,27 @@ export const NavbarComponent = (props: any) => {
                                     <Link to='/register'>Register</Link>
                                 </DropdownItem>
                             </DropdownMenu>
-                            </UncontrolledDropdown>
-                            <NavItem>
-                                <NavLink></NavLink>
-                            </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    Links
+                        </UncontrolledDropdown>
+                        <NavItem>
+                            <NavLink></NavLink>
+                        </NavItem>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret>
+                                Links
                                 </DropdownToggle>
-                                <DropdownMenu left className="navdropdown">
-                                    <DropdownItem className="navdropitem">
-                                        <Link to="/imdbsearch">IMDb Movies</Link>
-                                    </DropdownItem>
-                                    <DropdownItem className="navdropitem">
-                                        <Link to="/submitnewmedia">Create a New Submission</Link>
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-                            <Form>
-                                <Input type="text" id="search" placeholder="Search Titles"></Input>
-                            </Form>
+                            <DropdownMenu left className="navdropdown">
+                                <DropdownItem className="navdropitem">
+                                    <Link to="/imdbsearch">IMDb Movies</Link>
+                                </DropdownItem>
+                                <DropdownItem className="navdropitem">
+                                    <Link to="/submitnewmedia">Create a New Submission</Link>
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                     </Nav>
-                        <NavbarText color="ae9e89">Mens Rea Mystery</NavbarText>
+                    <NavbarText color="ae9e89">Mens Rea Mystery</NavbarText>
                 </Collapse>
             </Navbar>
         </div>
-            )
+    )
 }

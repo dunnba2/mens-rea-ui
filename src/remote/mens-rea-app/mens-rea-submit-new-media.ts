@@ -8,7 +8,8 @@ export const submitNewMedia = async (title: string, creator: string, year: strin
             creator: creator,
             year: year,
             targetAudience: targetAudience,
-            userRating: userRating
+            userRating: userRating,
+            type: mediaType
         })
         if (response.status === 201 || response.status === 200) {
             return {
