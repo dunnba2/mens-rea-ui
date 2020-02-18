@@ -45,7 +45,7 @@ export const changeImdbSearchTitlesPage = (search:any, page:number) => {
     return {
         type: imdbSearchTypes.INCREMENT_IMDB_SEARCH_TITLES_PAGE,
         payload:{
-            page
+            page  
         }
     }
 }
