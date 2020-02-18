@@ -43,6 +43,7 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
                 key={list.mediaId}
                 targetaudience={list.targetAudience}
                 userrating={list.userRating}
+                
             />
         })
         return(

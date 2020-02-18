@@ -19,10 +19,6 @@ export interface IMediaState{
     type:any
 }
 
-export interface INewMediaState{
-    addFavMedia:string
-}
-
 export interface IRegisterState {
     registerMessage:string
 }
@@ -48,7 +44,7 @@ export interface IState {
     iDreamState: IDreamState
     iFavoriteState: IFavoriteState
     mediaState: IMediaState
-    newMedia: INewMediaState
+    
 }
 
 // we will take the individual reduces for each part of state
@@ -59,6 +55,5 @@ export const state = combineReducers<IState>({
     imdbState:imdbReducer,
     iDreamState:iDreamStateReducer,
     iFavoriteState:iFavoriteStateReducer,
-    mediaState:mediaReducer,
-    newMedia: newMediaReducer 
+    mediaState:mediaReducer 
 })

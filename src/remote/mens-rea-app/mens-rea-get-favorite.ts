@@ -1,4 +1,4 @@
-import { apiClient } from "../mens-rea-app";
+import { apiClient } from ".";
 
 
 export const getFavoriteList = async (id:number) => {

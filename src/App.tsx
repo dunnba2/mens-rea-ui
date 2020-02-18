@@ -11,6 +11,7 @@ import MediaComponent from './components/media-component/MediaContainer';
 import  ImdbSearchComponent  from './components/imdb-component/ImdbSearchContainer';
 import { SubmitNewMediaComponent } from './components/submit-media-component/SubmitNewMediaComponent';
 import  IDreamBookComponent  from './components/idream-book-component/IDreamBookContainer';
+import FavoriteComponent from './components/favorite-component/FavoriteContainer';
 
 
 const App: React.FC = () => {
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <Router>
           <NavbarComponent/>
           <Switch>
+            <Route path='/favorites' component={FavoriteComponent}/>
             <Route path='/login' component={LoginComponent}/>
             <Route path='/register' component={RegisterComponent}/>
             <Route path="/media" component={MediaComponent}/>
