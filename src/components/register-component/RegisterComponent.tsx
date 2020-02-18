@@ -8,12 +8,7 @@ interface IRegisterState {
     email: string
 }
 
-interface IRegisterProps {
-    createNewUser: (u: string, p: string, e: string) => void
-    registerMessage: string
-}
-
-export class RegisterComponent extends React.Component<IRegisterProps, IRegisterState> {
+export class RegisterComponent extends React.Component<any, IRegisterState> {
     constructor(props:any) {
         super(props)
         this.state = {
@@ -46,7 +41,11 @@ export class RegisterComponent extends React.Component<IRegisterProps, IRegister
 
     submitRegister = async (event: SyntheticEvent) => {
         event.preventDefault()
-        this.props.createNewUser(this.state.username, this.state.password, this.state.email)
+        await this.props.createNewUser(this.state.username, this.state.password, this.state.email)
+
+        if(this.props.registered) {
+            this.props.history.push("/login")
+        }
     }
 
     render() {
