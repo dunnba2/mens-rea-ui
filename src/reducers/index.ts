@@ -21,6 +21,7 @@ export interface IMediaState{
 
 export interface IRegisterState {
     registerMessage:string
+    registered: boolean
 }
 
 export interface IImdbSearchState {
