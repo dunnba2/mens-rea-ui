@@ -8,9 +8,6 @@ interface IMediaDisplayProps {
     targetaudience: string,
     userrating: number,
     media_type: string,
-
-    createNewMedia:(t: string, c: string, y: number, ta: string, ur: number, ty: string) => void
-    addFavMedia:string;
 }
 interface IMediaDisplayState {
     creatortype: string,
@@ -51,7 +48,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
     }
     ratingRule=()=>{
         if (this.props.media_type!=="BOOK") {
-            return `<b>Rated:</b> {this.props.targetaudience}<br />`
+            return `<b>Rated:</b> ${this.props.targetaudience}<br />`
         }
     }
     render() {
@@ -65,7 +62,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                 {this.ratingRule}
                 <b>{this.state.creatortype}:</b> {this.props.creator}<br />
                 <br />
-        <button className="mr-button">Add to Library{this.props.addFavMedia}</button> <button className="mr-button">Add to Watch List</button><br />
+        <button className="mr-button">Add to Library</button> <button className="mr-button">Add to Watch List</button><br />
                 <button className="mr-button">View on {this.state.shopsrc}</button>
             </div>
         )
