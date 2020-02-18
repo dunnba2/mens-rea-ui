@@ -3,7 +3,7 @@ import { getAllFavoriteTypes } from "../action-mappers/favorite-action";
 
 
 const initialState: IFavoriteState = {
-    favorites:[]  //do i need userId here
+    favorites:[]  //do i need userId here?
 }
 
 export const iFavoriteStateReducer = (state = initialState, action:any) => {

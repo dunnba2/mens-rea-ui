@@ -7,7 +7,7 @@ const mapStateToProps = (state:IState) => { // need to fix here test if user is 
     return{ 
         favorite:state.iFavoriteState.favorites,
         user:state.userState.currentUser,
-        media:state.mediaState.currentMedia
+        media:state.mediaState.searchResults
     }
 }
 
