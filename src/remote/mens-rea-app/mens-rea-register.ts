@@ -13,5 +13,6 @@ export const apiRegister = async (username: string, password: string, email: str
         
     }catch (error) {
        body = error.response
+       return body
     }
 }
