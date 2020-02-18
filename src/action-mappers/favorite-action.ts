@@ -1,4 +1,4 @@
-import { getFavoriteList } from "../remote/favorite-clients/get-favorite"
+import { getFavoriteList } from "../remote/mens-rea-app/mens-rea-get-favorite"
 
 
 export const getAllFavoriteTypes = {
