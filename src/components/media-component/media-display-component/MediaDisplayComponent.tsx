@@ -1,4 +1,5 @@
 import React from "react";
+import { CardTitle } from "reactstrap";
 
 interface IMediaDisplayProps {
     title: string,
@@ -6,11 +7,14 @@ interface IMediaDisplayProps {
     year: number,
     targetaudience: string,
     userrating: number,
-    media_type: string;
+    media_type: string,
+
+    createNewMedia:(t: string, c: string, y: number, ta: string, ur: number, ty: string) => void
+    addFavMedia:string;
 }
 interface IMediaDisplayState {
     creatortype: string,
-    shopsrc: string;
+    shopsrc: string,
     imgsrc:string;
 }
 export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProps, IMediaDisplayState> {
@@ -61,7 +65,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                 {this.ratingRule}
                 <b>{this.state.creatortype}:</b> {this.props.creator}<br />
                 <br />
-                <button className="mr-button">Add to Library</button> <button className="mr-button">Add to Watch List</button><br />
+        <button className="mr-button">Add to Library{this.props.addFavMedia}</button> <button className="mr-button">Add to Watch List</button><br />
                 <button className="mr-button">View on {this.state.shopsrc}</button>
             </div>
         )
