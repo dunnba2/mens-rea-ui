@@ -1,16 +1,9 @@
 import React, { SyntheticEvent } from 'react';
 import { Form, FormGroup, Col, Input, Button } from 'reactstrap';
-import { useLocation } from 'react-router-dom';
 
 interface ILoginState {
     username: string
     password: string
-}
-
-interface ILoginProps {
-    updateCurrentUser: (u: string, p: string) => void
-    loginMessage: string
-    loggedIn: boolean
 }
 
 export class LoginComponent extends React.Component<any, ILoginState> {
