@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react';
 import { Form, FormGroup, Col, Input, Button } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 interface ILoginState {
     username: string
@@ -39,8 +39,10 @@ export class LoginComponent extends React.Component<any, ILoginState> {
     submitLogin = async (event: SyntheticEvent) => {
         event.preventDefault()
         await this.props.updateCurrentUser(this.state.username, this.state.password)
-     
+
         let { from } = this.props.location.state || { from: {pathname: "/"}}
+        console.log(this.props.history);
+        
 
         if (this.props.loggedIn) {
             this.props.history.push(from)
