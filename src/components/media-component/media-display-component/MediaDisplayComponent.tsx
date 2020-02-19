@@ -33,30 +33,34 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                 imgsrc:"https://cdnw.nickpic.host/s80vee.png"
             });
         }
-        else if (this.props.type==="MOVIE"){
+        if (this.props.type === "MOVIE"){
+            console.log("Type 'movie' detected.  Setting director and image.")
             this.setState({
                 ...this.state,
                 creatortype: "Director",
                 imgsrc:"https://cdnw.nickpic.host/s80BrX.png"
             });
         }
-        else {
+        if (this.props.type==="SHOW") {
             this.setState({
                 ...this.state,
                 creatortype: "Director",
                 imgsrc:"https://cdnw.nickpic.host/s80bQb.png"
             });
         }
-        this.ratingRule();
+        // this.ratingRule();
     }
-    ratingRule() {
-        if (this.props.type!=="BOOK") {
-            this.setState({
-                ...this.state,
-                rating: `<b>Rated:</b> ${this.props.targetaudience}<br/>`
-            })
-        }
-    }
+    // ratingRule=()=> {
+    //     console.log("In ratingRule();")
+    //     console.log(this.props.type);
+    //     if (this.props.type!=="BOOK") {
+    //         this.setState({
+    //             ...this.state,
+    //             rating: `<b>Rated:</b> {this.props.targetaudience}<br/>`
+    //         })
+    //         console.log(this.state.rating)
+    //     }
+    // }
     render() {
         return (
             <div className="content-sm">
@@ -65,10 +69,13 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                 <p>&nbsp;<br/>
                 <b>User Rating:</b> {this.props.userrating}<br/>
                 <b>Released:</b> {this.props.year}<br/>
-                {this.ratingRule}
+                {this.props.type==="BOOK"? "": <b>Rating:</b>}
+                {this.props.type==="BOOK"?"":`${this.props.targetaudience}`}
+                {this.props.type==="BOOK"?"": <br/>}
                 <b>{this.state.creatortype}:</b> {this.props.creator}</p>
                 <br />
         <button className="mr-button">Add to Library</button> <button className="mr-button">Add to Watch List</button>
+        {console.log(this.state.creatortype +", "+ this.state.imgsrc)}
             </div>
         )
     }
