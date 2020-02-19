@@ -16,20 +16,20 @@ export const getAllMedia = () => async (dispatch:any) => {
         }
     })
 }
-export const getNewPageMediaResults=(searchTerm:string,page:number,mediaType:any) => async (dispatch:any) => {
-    let media=(await mediaSearch(searchTerm, page, mediaType))
+export const getNewPageMediaResults=(searchTerm:string,page:number,type:any) => async (dispatch:any) => {
+    let media=(await mediaSearch(searchTerm, page, type))
     dispatch ({
         type:mediaTypes.GET_NEW_SEARCH_RESULT_SET,
         payload:{
             searchResults:media,
             searchTerm:searchTerm,
             page:page,
-            type:mediaType
+            type:type
         }
     })
 }
-export const getNextPageMediaResults=(searchTerm:string,page:number,mediaType:any) => async (dispatch:any) => {
-    let media=(await mediaSearch(searchTerm, page, mediaType))
+export const getNextPageMediaResults=(searchTerm:string,page:number,type:any) => async (dispatch:any) => {
+    let media=(await mediaSearch(searchTerm, page, type))
     dispatch ({
         type:mediaTypes.GET_NEXT_RESULTS_PAGE,
         payload: {
@@ -37,7 +37,7 @@ export const getNextPageMediaResults=(searchTerm:string,page:number,mediaType:an
         }
     })
 }
-export const changeMediaResultsPage=(searchTerm:string,page:number,mediaType:any) => async (dispatch:any) => {
+export const changeMediaResultsPage=(searchTerm:string,page:number,type:any) => async (dispatch:any) => {
     return ({
         type:mediaTypes.INCREMENT_PAGE_COUNT,
         payload: {
