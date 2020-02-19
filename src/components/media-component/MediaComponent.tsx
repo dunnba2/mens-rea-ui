@@ -39,7 +39,7 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
             return <MediaDisplayComponent title={list.title}
                 year={list.year}
                 creator={list.creator}
-                media_type={list.type}
+                type={list.type}
                 key={list.mediaId}
                 targetaudience={list.targetAudience}
                 userrating={list.userRating}
