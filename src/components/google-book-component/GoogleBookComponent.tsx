@@ -14,7 +14,7 @@ interface IGoogleBookProps {
     loadMysteryTitles: () => void
     getNextLoadPage: (search:any, page:number) => void
     newBookSearch: (search:any, page:number) => void
-    nextPageNewBookSearch: (search:any, page:number) => void
+    // nextPageNewBookSearch: (search:any, page:number) => void
 }
 
 export class GoogleBookComponent extends React.Component<IGoogleBookProps, IGoogleBookState> {
@@ -22,7 +22,7 @@ export class GoogleBookComponent extends React.Component<IGoogleBookProps, IGoog
         super(props)
         this.state = {
             search: '',
-            page: 1
+            page: 0
         }
     }
 
@@ -33,19 +33,19 @@ export class GoogleBookComponent extends React.Component<IGoogleBookProps, IGoog
     }
 
     pageTurnForward = () => {
-        this.props.getNextLoadPage(this.props.search, this.props.page + 1)
-        this.props.nextPageNewBookSearch(this.props.search, this.props.page + 1)
+        // this.props.nextPageNewBookSearch(this.props.search, this.props.page + 1)
+        this.props.getNextLoadPage(this.props.search, this.props.page + 10) 
     }
 
     pageTurnBackwards = () => {
-        if (this.props.page > 1) {
-            this.props.getNextLoadPage(this.props.search, this.props.page - 1)
-            this.props.nextPageNewBookSearch(this.props.search, this.props.page - 1)
+        if (this.props.page > 0) {
+            // this.props.nextPageNewBookSearch(this.props.search, this.props.page - 1)
+            this.props.getNextLoadPage(this.props.search, this.props.page - 10)
         }
     }
     
     newSearch = () => {
-        let newPage = 1
+        let newPage = 0
         this.props.newBookSearch(this.state.search, newPage)
         this.setState({
             ...this.state,
@@ -59,14 +59,14 @@ export class GoogleBookComponent extends React.Component<IGoogleBookProps, IGoog
             search: event.target.value
         })
     }
-
+    
     render() {
         const displayBooks: GoogleBookDisplayComponent[] = this.props.bookResults.map<any>((list: any) => {
             return <GoogleBookDisplayComponent title={list.volumeInfo.title}
-            authors={[list.volumeInfo.authors[0]]}
+            authors={list.volumeInfo.authors ? [list.volumeInfo.authors[0]] : ['No Author']}
             date={list.volumeInfo.publishedDate}
             description={list.volumeInfo.description}
-            imageLink={list.volumeInfo.imageLinks.thumbnail}
+            imageLink={list.volumeInfo.imageLinks ? list.volumeInfo.imageLinks.thumbnail : 'https://cdnw.nickpic.host/s80vee.png'}
             previewBook={list.volumeInfo.previewLink}
             key={list.id}
             />

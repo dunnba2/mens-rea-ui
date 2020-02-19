@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { IState } from "../../reducers";
-import { loadMysteryTitles, getNextLoadPage, newBookSearch, nextPageNewBookSearch } from "../../action-mappers/google-book-actions"
+import { loadMysteryTitles, getNextLoadPage, newBookSearch } from "../../action-mappers/google-book-actions"
 import { GoogleBookComponent } from "./GoogleBookComponent";
 
 const mapStateToProps = (state:IState) => {
@@ -14,8 +14,8 @@ const mapStateToProps = (state:IState) => {
 const mapDispatchToProps = {
     loadMysteryTitles,
     getNextLoadPage,
-    newBookSearch,
-    nextPageNewBookSearch
+    newBookSearch
+    // nextPageNewBookSearch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleBookComponent)
