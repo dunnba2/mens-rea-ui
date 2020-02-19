@@ -11,8 +11,8 @@ interface IFavoriteProps{
     user: any
     favorites: any[]
     getAllFavoriteList: (id:number) => void //almost complete
-    // getAllFavoritesByType:(id:number, type:string) => void
-    // removeItemFromFavorite:() => void
+    getAllFavoritesByType:(id:number, type:string) => void
+    removeItemFromFavorite:() => void
 
 }
 
@@ -27,9 +27,20 @@ export class FavoriteComponent extends React.Component<IFavoriteProps, IFavorite
     componentDidMount() {
         if(this.props.favorites.length === 0) {
             this.props.getAllFavoriteList(this.props.user.id)
+
         }
     }
+
+    getByType = () => {
+        //function that the button will call
+        /// might need to add type to the state?
+        this.props.getAllFavoritesByType(this.props.user, this.props.favorites)
+    }
     
+    deleteMedia = () => {
+        this.props.removeItemFromFavorite(this.props.user, this.props.favorites)
+
+    }
     
     render() {
         const displayFavs: FavoriteDisplayComponent[] = this.props.favorites.map<any>((list:any) => {

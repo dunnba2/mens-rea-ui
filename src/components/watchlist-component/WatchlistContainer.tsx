@@ -5,7 +5,7 @@ import { getAllWatchlist } from "../../action-mappers/watchlist-actions"
 
 const mapStateToProps = (state:IState) => {
     return{
-        watchlist:state.iWatchlistState.watchlists,
+        watchlist:state.watchlistState.watchlists,
         user:state.userState.currentUser,
         media:state.mediaState.searchResults
     }

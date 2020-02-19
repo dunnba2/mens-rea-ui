@@ -1,6 +1,7 @@
 import {IWatchlistState} from "."
 import { getAllWatchlistTypes } from "../action-mappers/watchlist-actions"
 
+
 const initialState: IWatchlistState = {
     watchlists:[]
 }
@@ -24,6 +25,9 @@ export const iWatchlistStateReducer = (state = initialState, action:any) => {
                 ...state,
                 watchlists:action.payload.watchlists
             }
+        }
+        default:{
+            return state;
         }
     }
 }
