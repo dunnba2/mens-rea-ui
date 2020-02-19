@@ -5,6 +5,8 @@ import { imdbReducer } from "./imdb-search-reducer";
 import { iDreamStateReducer } from "./idream-state-reducer";
 import { iFavoriteStateReducer } from "./favorite-state-reducer";
 import { mediaReducer } from "./media-reducer";
+import { googleBookReducer } from "./google-book-reducer";
+
 
 export interface IUserState {
     currentUser:any
@@ -17,6 +19,12 @@ export interface IMediaState{
     searchTerm:string,
     page:number,
     type:any
+}
+
+export interface IGooogleBookState {
+    bookResults:any[]
+    search:any
+    page:number
 }
 
 export interface IRegisterState {
@@ -45,7 +53,7 @@ export interface IState {
     iDreamState: IDreamState
     iFavoriteState: IFavoriteState
     mediaState: IMediaState
-    
+    googleBookState: IGooogleBookState    
 }
 
 // we will take the individual reduces for each part of state
@@ -56,5 +64,6 @@ export const state = combineReducers<IState>({
     imdbState:imdbReducer,
     iDreamState:iDreamStateReducer,
     iFavoriteState:iFavoriteStateReducer,
-    mediaState:mediaReducer 
+    mediaState:mediaReducer,
+    googleBookState:googleBookReducer 
 })

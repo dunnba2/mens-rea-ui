@@ -12,7 +12,7 @@ import  ImdbSearchComponent  from './components/imdb-component/ImdbSearchContain
 import { SubmitNewMediaComponent } from './components/submit-media-component/SubmitNewMediaComponent';
 import  IDreamBookComponent  from './components/idream-book-component/IDreamBookContainer';
 import FavoriteComponent from './components/favorite-component/FavoriteContainer';
-
+import GoogleBookComponent from "./components/google-book-component/GoogleBookContainer"
 
 
 const App: React.FC = () => {
@@ -23,6 +23,7 @@ const App: React.FC = () => {
         <Router>
           <NavbarComponent/>
           <Switch>
+            <Route path='/booksearch' component={GoogleBookComponent}/>
             <Route path='/favorites' component={FavoriteComponent}/>
             <Route path='/login' component={LoginComponent}/>
             <Route path='/register' component={RegisterComponent}/>
