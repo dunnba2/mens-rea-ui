@@ -41,7 +41,10 @@ export const NavbarComponent = (props: any) => {
                                 </DropdownToggle>
                             <DropdownMenu left className="navdropdown">
                                 <DropdownItem className="navdropitem">
-                                    <Link to="/imdbsearch">IMDb Movies</Link>
+                                    <Link to="/media">Media Search</Link>
+                                </DropdownItem>
+                                <DropdownItem className="navdropitem">
+                                    <Link to="/imdbsearch">IMDb Search</Link>
                                 </DropdownItem>
                                 <DropdownItem className="navdropitem">
                                     <Link to="/submitnewmedia">Create a New Submission</Link>
