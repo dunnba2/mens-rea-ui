@@ -1,4 +1,5 @@
 import React from "react";
+import { withToastManager } from 'react-toast-notifications';
 
 interface IMediaDisplayProps {
     title: string,
@@ -7,11 +8,12 @@ interface IMediaDisplayProps {
     targetaudience: string,
     userrating: number,
     type: string,
+    user:any,
+    loggedIn:boolean
 }
 interface IMediaDisplayState {
     creatortype: string,
-    imgsrc:string;
-    rating:string;
+    imgsrc:string
 }
 export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProps, IMediaDisplayState> {
     constructor(props: any) {
@@ -19,7 +21,6 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         this.state = {
             creatortype: "",
             imgsrc:"",
-            rating:""
         }
     }
     componentDidMount() {
@@ -48,19 +49,20 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                 imgsrc:"https://cdnw.nickpic.host/s80bQb.png"
             });
         }
-        // this.ratingRule();
     }
-    // ratingRule=()=> {
-    //     console.log("In ratingRule();")
-    //     console.log(this.props.type);
-    //     if (this.props.type!=="BOOK") {
-    //         this.setState({
-    //             ...this.state,
-    //             rating: `<b>Rated:</b> {this.props.targetaudience}<br/>`
-    //         })
-    //         console.log(this.state.rating)
-    //     }
-    // }
+    librarySave=()=>{
+        if (!this.props.loggedIn) {
+            return {
+               //toast notification forthcoming 
+            }
+        }
+        else {
+            //do something else
+        }
+    }
+    watchSave=()=>{
+
+    }
     render() {
         return (
             <div className="content-sm">
@@ -74,7 +76,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                 {this.props.type==="BOOK"?"": <br/>}
                 <b>{this.state.creatortype}:</b> {this.props.creator}</p>
                 <br />
-        <button className="mr-button">Add to Library</button> <button className="mr-button">Add to Watch List</button>
+        <button className="mr-button" onClick={this.librarySave}>Add to Library</button> <button className="mr-button" onClick={this.watchSave}>Add to Watch List</button>
         {console.log(this.state.creatortype +", "+ this.state.imgsrc)}
             </div>
         )

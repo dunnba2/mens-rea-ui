@@ -8,7 +8,9 @@ const mapStateToProps = (state: IState) => {
         searchResults: state.mediaState.searchResults,
         searchTerm: state.mediaState.searchTerm,
         page: state.mediaState.page,
-        type: state.mediaState.type
+        type: state.mediaState.type,
+        user:state.userState.currentUser,
+        loggedin:state.userState.loggedIn
     }
 }
 const mapDispatchToProps = {
