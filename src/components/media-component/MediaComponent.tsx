@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup, Button } from 'reactstrap';
+import { Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup } from 'reactstrap';
 import {MediaDisplayComponent} from "./media-display-component/MediaDisplayComponent";
 
 interface IMediaState {
@@ -12,6 +12,7 @@ interface IMediaProps {
     searchTerm:string,
     page:number,
     type: any,
+    user: any,
     getNewPageMediaResults: (searchTerm: string, page: number, type: any) => void,
     changeMediaResultsPage: (searchTerm: string, page: number, type: any) => void,
     getAllMedia: () => void,
@@ -30,7 +31,6 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
         console.log("In componentDidMount")
         console.log(this.props.searchResults.length)
         if (this.props.searchResults.length === 0) {
-            console.log("Calling getAllMedia()")
             this.props.getAllMedia()
         }
     }
@@ -43,7 +43,8 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
                 key={list.mediaId}
                 targetaudience={list.targetAudience}
                 userrating={list.userRating}
-                
+                user
+                loggedIn
             />
         })
         return(
