@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoogleBookDisplayComponent } from '../google-book-component/googl-book-display-component/GoogleBookDisplayComponent'
+import { Form, FormGroup, Input, Button, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 interface IGoogleBookState {
     search: any
@@ -60,6 +61,46 @@ export class GoogleBookComponent extends React.Component<IGoogleBookProps, IGoog
     }
 
     render() {
-        return null
+        const displayBooks: GoogleBookDisplayComponent[] = this.props.bookResults.map<any>((list: any) => {
+            return <GoogleBookDisplayComponent title={list.volumeInfo.title}
+            authors={[list.volumeInfo.authors[0]]}
+            date={list.volumeInfo.publishedDate}
+            description={list.volumeInfo.description}
+            imageLink={list.volumeInfo.imageLinks.thumbnail}
+            previewBook={list.volumeInfo.previewLink}
+            key={list.id}
+            />
+        })
+
+        return (
+            <div className="main">
+                <h1>Mens Rea</h1>
+                <h2>Search content on Google Books</h2>
+                <div className="content">
+                    <div>
+                        <Form inline>
+                            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                <Input type="text"
+                                    id="imdbSearch"
+                                    placeholder="Search Titles"
+                                    value={this.state.search}
+                                    onChange={this.updateSearch} />
+                            </FormGroup>
+                            <Button onClick={this.newSearch} className="mr-button">Search</Button>
+                        </Form>
+                    </div>
+                    {displayBooks}
+
+                    <Pagination aria-label="Page navigation example">
+                        <PaginationItem disabled={this.props.page === 1} onClick={this.pageTurnBackwards}>
+                            <PaginationLink previous className="mr-button"/>
+                        </PaginationItem>
+                        <PaginationItem onClick={this.pageTurnForward}>
+                            <PaginationLink next className="mr-button"/>
+                        </PaginationItem>
+                    </Pagination>
+                </div>
+            </div>
+        )
     }
 }
