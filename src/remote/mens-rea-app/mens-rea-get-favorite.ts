@@ -13,8 +13,10 @@ export const getFavoriteByType = async (id:number, type:string) => {
     return response.data
 }
 
-export const deleteFavorite = (id:number, mediaId:number) => {
-    let response = await apiClient.delete(id, mediaId);
+
+export const deleteFavorite = async (id:number, mediaId:number) => {
+    let response = await apiClient.delete(`/media/favorites/${id} and ${mediaId}`)
+    // need to figure this out. I think this might work, maybe...?
     console.log("Favorite Item deleted");
     getFavoriteList
 }

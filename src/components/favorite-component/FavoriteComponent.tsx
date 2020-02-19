@@ -5,6 +5,8 @@ import { FavoriteDisplayComponent } from "./favorite-display-component/FavoriteD
 
 interface IFavoriteState{
     id: number
+    type: string
+    mid: number /// what is the correct name ??
 }
 
 interface IFavoriteProps{
@@ -12,7 +14,7 @@ interface IFavoriteProps{
     favorites: any[]
     getAllFavoriteList: (id:number) => void //almost complete
     getAllFavoritesByType:(id:number, type:string) => void
-    removeItemFromFavorite:() => void
+    deleteItemFromFavoriteList:() => void
 
 }
 
@@ -20,7 +22,9 @@ export class FavoriteComponent extends React.Component<IFavoriteProps, IFavorite
     constructor(props:any){
         super(props)
         this.state = {
-            id: 0 // this may need to change
+            id: 0, // this may need to change
+            type: '',
+            mid: 0
         }
     }
 
@@ -34,11 +38,11 @@ export class FavoriteComponent extends React.Component<IFavoriteProps, IFavorite
     getByType = () => {
         //function that the button will call
         /// might need to add type to the state?
-        this.props.getAllFavoritesByType(this.props.user, this.props.favorites)
+        this.props.getAllFavoritesByType(this.props.user.id, this.props.favorites.type)
     }
     
     deleteMedia = () => {
-        this.props.removeItemFromFavorite(this.props.user, this.props.favorites)
+        this.props.deleteItemFromFavoriteList(/*this.props.user, this.props.favorites*/)
 
     }
     

@@ -1,4 +1,4 @@
-import { getFavoriteList, getFavoriteByType } from "../remote/mens-rea-app/mens-rea-get-favorite"
+import { getFavoriteList, getFavoriteByType, deleteFavorite } from "../remote/mens-rea-app/mens-rea-get-favorite"
 
 
 export const getAllFavoriteTypes = {
@@ -28,12 +28,12 @@ export const getAllByTypeFavoriteList = (id:number, type:string) => async (dispa
     })
 }
 
-export const deleteItemFromFavoriteList = (id:number, mediaId: number) => async (dispatch:any) => {
-    let deleteFavorite = await deleteItemFromFavoriteList(id, mediaId)
+export const deleteItemFromFavoriteList = (id:number, mid: number) => async (dispatch:any) => {
+    let deleteFavoriteItem = await deleteFavorite(id, mid)
     dispatch({
         type:getAllFavoriteTypes.DELETE_ITEM_FAVORITES,
         payload:{
-            favorites:deleteFavorite
+            favorites:deleteFavoriteItem
         }
     })
 }

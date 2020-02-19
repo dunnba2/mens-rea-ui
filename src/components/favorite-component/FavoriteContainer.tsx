@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { FavoriteComponent } from "./FavoriteComponent";
 import { IState } from "../../reducers";
-import { getAllFavoriteList,getAllFavoritesByType, removeItemFromFavorite } from "../../action-mappers/favorite-action";
+import { getAllFavoriteList, getAllByTypeFavoriteList, deleteItemFromFavoriteList } from "../../action-mappers/favorite-action";
 
 const mapStateToProps = (state:IState) => { // need to fix here test if user is logged in
     return{ 
@@ -13,8 +13,9 @@ const mapStateToProps = (state:IState) => { // need to fix here test if user is 
 
 const mapDispatchToProps = {
     getAllFavoriteList,
-    getAllFavoritesByType,
-    removeItemFromFavorite
+    getAllByTypeFavoriteList,
+    deleteItemFromFavoriteList
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteComponent)
