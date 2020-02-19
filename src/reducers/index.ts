@@ -5,6 +5,7 @@ import { imdbReducer } from "./imdb-search-reducer";
 import { iDreamStateReducer } from "./idream-state-reducer";
 import { iFavoriteStateReducer } from "./favorite-state-reducer";
 import { mediaReducer } from "./media-reducer";
+import { iWatchlistStateReducer } from "./watchlist-state-reducer";
 
 export interface IUserState {
     currentUser:any
@@ -38,6 +39,10 @@ export interface IFavoriteState{
     favorites:any[]
 }
 
+export interface IWatchlistState{
+    watchlists:any[]
+}
+
 export interface IState {
     userState : IUserState
     registerState : IRegisterState
@@ -45,6 +50,7 @@ export interface IState {
     iDreamState: IDreamState
     iFavoriteState: IFavoriteState
     mediaState: IMediaState
+    iWatchlistState: IWatchlistState
     
 }
 
@@ -56,5 +62,6 @@ export const state = combineReducers<IState>({
     imdbState:imdbReducer,
     iDreamState:iDreamStateReducer,
     iFavoriteState:iFavoriteStateReducer,
-    mediaState:mediaReducer 
+    mediaState:mediaReducer,
+    iWatchlistState:iWatchlistStateReducer
 })
