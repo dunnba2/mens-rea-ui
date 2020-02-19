@@ -46,6 +46,9 @@ export const NavbarComponent = (props: any) => {
                                 <DropdownItem className="navdropitem">
                                     <Link to="/submitnewmedia">Create a New Submission</Link>
                                 </DropdownItem>
+                                <DropdownItem className="navdropitem">
+                                    <Link to="/booksearch">Google Books</Link>
+                                </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
