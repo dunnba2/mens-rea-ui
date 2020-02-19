@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { GoogleBookDisplayComponent } from '../google-book-component/googl-book-display-component/GoogleBookDisplayComponent'
 
 interface IGoogleBookState {
     search: any
