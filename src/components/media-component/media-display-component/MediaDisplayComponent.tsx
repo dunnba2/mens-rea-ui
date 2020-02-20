@@ -2,6 +2,9 @@ import React from "react";
 import { UncontrolledAlert } from 'reactstrap';
 import {saveToLibrary} from "../../../remote/mens-rea-app/save-to-library"
 import {saveToWatch} from "../../../remote/mens-rea-app/save-to-watch"
+import { SubmitReviewComponent } from "../../submit-review-component/SubmitReviewComponent";
+
+
 
 interface IMediaDisplayProps {
     title: string,

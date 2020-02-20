@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { NavbarComponent } from './components/navbar-component/NavbarComponent';
+import  NavbarComponent  from './components/navbar-component/NavbarContainer';
 import  LoginComponent  from './components/login-component/LoginContainer';
 import RegisterComponent from './components/register-component/RegisterContainer';
 import MediaComponent from './components/media-component/MediaContainer';
