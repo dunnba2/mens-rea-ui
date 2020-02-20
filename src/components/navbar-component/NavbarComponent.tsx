@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
+import { IState } from '../../reducers/index';
 
 
-export const NavbarComponent = (props: any) => {
+export const NavbarComponent = (props:any) => {
     const [isOpen, setisOpen] = useState(false);
 
     const toggle = () => setisOpen(!isOpen);
@@ -29,6 +30,9 @@ export const NavbarComponent = (props: any) => {
                                 </DropdownItem>
                                 <DropdownItem className="navdropitem">
                                     <Link to='/register'>Register</Link>
+                                </DropdownItem>
+                                <DropdownItem className="navdropitem" onClick={props.logoutUser}>
+                                    <Link to='/'>Logout</Link>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
