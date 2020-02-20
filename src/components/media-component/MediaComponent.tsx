@@ -1,7 +1,6 @@
 import React from "react";
 import { Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup } from 'reactstrap';
 import {MediaDisplayComponent} from "./media-display-component/MediaDisplayComponent";
-import {saveToLibrary} from "../../remote/mens-rea-app/save-to-library"
 
 interface IMediaState {
     searchTerm: string,
