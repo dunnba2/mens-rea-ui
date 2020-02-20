@@ -3,7 +3,8 @@ import { apiLogin } from "../remote/mens-rea-app/mens-rea-login-clients"
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN: 'LOGIN_SUCCESSFUL_LOGIN',
-    UNSUCCESSFUL_LOGIN: 'LOGIN_UNSUCCESSFUL_LOGIN'
+    UNSUCCESSFUL_LOGIN: 'LOGIN_UNSUCCESSFUL_LOGIN',
+    USER_LOGOUT: 'LOGOUT_USER_LOGOUT'
 }
 
 export const updateCurrentUser = (username:string, password:string) => async (dispatch:any) => {
@@ -24,5 +25,11 @@ export const updateCurrentUser = (username:string, password:string) => async (di
                 loginMessage:"Invalid credentials"
             }
         })
+    }
+}
+
+export const logoutUser = () => {
+    return {
+        type:loginTypes.USER_LOGOUT
     }
 }
