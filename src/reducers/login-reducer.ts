@@ -5,7 +5,8 @@ import { loginTypes } from "../action-mappers/login-actions";
 const initialState:IUserState = {
     currentUser:null,
     loginMessage:'',
-    loggedIn:false
+    loggedIn:false,
+    logoutMessage:''
 }
 
 export const loginReducer = (state = initialState, action:any) => {
@@ -23,6 +24,14 @@ export const loginReducer = (state = initialState, action:any) => {
                 ...state,
                 loginMessage:action.payload.loginMessage,
                 loggedIn: false
+            }
+        }
+        case loginTypes.USER_LOGOUT:{
+            return {
+                ...state,
+                currentUser: null,
+                loggedIn: false,
+                logoutMessage: 'Logout Successful'
             }
         }
         default:

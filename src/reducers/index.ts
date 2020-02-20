@@ -11,7 +11,8 @@ import { googleBookReducer } from "./google-book-reducer";
 export interface IUserState {
     currentUser:any
     loginMessage:string
-    loggedIn:boolean
+    loggedIn:boolean,
+    logoutMessage:string
 }
 
 export interface IMediaState{ 
