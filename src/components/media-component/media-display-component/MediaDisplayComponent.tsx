@@ -51,7 +51,8 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
     librarySave = () => {
         console.log("in librarySave")
         if (!this.props.user) {
-            this.activateAlert();
+            let a=document.getElementById("failed");
+            if (a) {a.style.display="block";}
         }
         else {
             let uID=this.props.user.id;
@@ -61,30 +62,43 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
             saveToLibrary(uID, mID)
         }
     }
-    watchSave = () => {
+    watchSave = async () => {
         console.log("in watchSave")
         if (!this.props.user) {
-            this.activateAlert();
+            let a=document.getElementById("failed");
+            if (a) {a.style.display="block";}
         }
         else {
             let uID=this.props.user.id;
             let mID=this.props.mediaId;
             console.log(uID);
             console.log(mID);
-            saveToWatch(uID, mID)
+            let resp=await saveToWatch(uID, mID)
+            if (resp.status===200) {
+                let a=document.getElementById("successful");
+                if (a) {a.style.display="block";}
+            }
         }
     }
-    activateAlert=()=> {
-        return (
-          <UncontrolledAlert color="danger">
-            You must be logged in to use this feature!
-          </UncontrolledAlert>
-        );
+    hideAlert=()=>{
+        let a=document.getElementById("failed");
+        if (a) {a.style.display="none";}
+    }
+    hideAlertS=()=>{
+        let a=document.getElementById("successful");
+        if (a) {a.style.display="none";}
     }
     render() {
         return (
             <>
-                {console.log(this.props)}
+            <div className="alert-f" id="failed">
+                You must be logged in to use this feature!
+                <span className="close-f" onClick={this.hideAlert}>x</span>
+                </div>
+                <div className="alert-s" id="successful">
+                Saved!
+                <span className="close-s" onClick={this.hideAlertS}>x</span>
+                </div>
                 <div className="content-sm">
                     <img src={this.state.imgsrc} className="imgdisp" alt="" />
                     <h4>{this.props.title}</h4>
