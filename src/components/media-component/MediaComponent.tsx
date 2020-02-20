@@ -1,6 +1,7 @@
 import React from "react";
 import { Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup } from 'reactstrap';
 import {MediaDisplayComponent} from "./media-display-component/MediaDisplayComponent";
+import {saveToLibrary} from "../../remote/mens-rea-app/save-to-library"
 
 interface IMediaState {
     searchTerm: string,
@@ -43,8 +44,8 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
                 key={list.mediaId}
                 targetaudience={list.targetAudience}
                 userrating={list.userRating}
-                user
-                loggedIn
+                mediaId={list.mediaId}
+                user={this.props.user}
             />
         })
         return(
