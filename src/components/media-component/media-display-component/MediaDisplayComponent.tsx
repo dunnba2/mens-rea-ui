@@ -59,10 +59,15 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         }
         else {
             let uID=this.props.user.id;
-            let mID=this.props.mediaId;
-            console.log(uID);
-            console.log(mID);
-            saveToLibrary(uID, mID)
+            let mediaItem={
+            title: this.props.title,
+            creator: this.props.creator,
+            year: this.props.year,
+            targetAudience: this.props.targetaudience,
+            userRating: this.props.userrating,
+            type: this.props.type,
+            }
+            saveToLibrary(uID, mediaItem)
         }
     }
     watchSave = async () => {
