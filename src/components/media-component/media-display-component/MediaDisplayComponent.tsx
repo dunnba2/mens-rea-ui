@@ -51,7 +51,7 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
             });
         }
     }
-    librarySave = () => {
+    librarySave = async () => {
         console.log("in librarySave")
         if (!this.props.user) {
             let a=document.getElementById("failed");
@@ -59,15 +59,12 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         }
         else {
             let uID=this.props.user.id;
-            let mediaItem={
-            title: this.props.title,
-            creator: this.props.creator,
-            year: this.props.year,
-            targetAudience: this.props.targetaudience,
-            userRating: this.props.userrating,
-            type: this.props.type,
+            let mID=this.props.mediaId;
+            let resp=await saveToLibrary(uID, mID)
+            if (resp.status===200) {
+                let a=document.getElementById("successful");
+                if (a) {a.style.display="block";}
             }
-            saveToLibrary(uID, mediaItem)
         }
     }
     watchSave = async () => {
