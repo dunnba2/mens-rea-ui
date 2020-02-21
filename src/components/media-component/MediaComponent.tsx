@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, PaginationItem, PaginationLink, Form, Input, FormGroup } from 'reactstrap';
+import { Form, Input, FormGroup } from 'reactstrap';
 import { MediaDisplayComponent } from "./media-display-component/MediaDisplayComponent";
 
 interface IMediaState {
