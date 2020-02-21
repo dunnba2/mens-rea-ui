@@ -70,11 +70,6 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
                 user={this.props.user}
             />
         })
-        const mediatypes = [
-            { label: "book", value: "BOOK" },
-            { label: "movie", value: "MOVIE" },
-            { label: "show", value: "SHOW" }
-        ]
         return (
             <div className="main">
                 <h1>Mens Rea</h1>
@@ -83,11 +78,6 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
                     <div>
                         <Form inline>
                             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                {/* <Input type="text"
-                                    id="mediaSearch"
-                                    placeholder="Search Titles"
-                                    value={this.state.searchTerm}
-                                    onChange={this.updateSearch} /> */}
                                 <Input type="select" name="select" id="mediatype" value={this.state.type} onChange={this.captureType}>
                                     <option >Choose an Option</option>
                                     <option value="BOOK">Book</option>
