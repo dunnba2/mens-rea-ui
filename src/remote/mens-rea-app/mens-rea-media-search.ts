@@ -3,25 +3,27 @@ import { apiClient } from ".";
 export const mediaSearch = async (searchTerm:string,page:number,mediaType:any) => {
     try {
         let response;
-        if (searchTerm===""){
         switch(mediaType) {
-            case "Book": {
+            case "BOOK": {
                 response=await(apiClient.get(`/media/Book`))
+                break;
             }
-            case "Show": {
+            case "SHOW": {
                 response=await(apiClient.get(`/media/Show`))
+                break;
             }
-            case "Movie": {
+            case "MOVIE": {
                 response=await(apiClient.get(`/media/Movie`))
+                break;
             }
             default: {
                 response=await(apiClient.get(`/media`))
+                break;
             }
         }
         if (response.status===200) {
             return response.data
         }
-    }
     }catch (e) {
         console.log(e);
         return {
