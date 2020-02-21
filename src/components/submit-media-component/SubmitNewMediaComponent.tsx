@@ -73,7 +73,13 @@ export class SubmitNewMediaComponent extends React.Component<any, ISubmitNewMedi
         let response: any = await submitNewMedia(this.state.title, this.state.creator, this.state.year, this.state.mediaType, this.state.userRating, this.state.targetAudience)
         this.setState({
             ...this.state,
-            submissionMessage: response.submissionMessage
+            submissionMessage: response.submissionMessage,
+            title: '',
+            creator: '',
+            year: '',
+            targetAudience: '',
+            userRating: 0,
+            mediaType: ''
         })
     }
 
