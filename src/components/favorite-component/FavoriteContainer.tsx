@@ -5,9 +5,9 @@ import { getAllFavoriteList } from "../../action-mappers/favorite-action";
 
 const mapStateToProps = (state:IState) => { // need to fix here test if user is logged in
     return{ 
-        favorite:state.iFavoriteState.favorites,
+        favorites:state.iFavoriteState.favorites,
         user:state.userState.currentUser,
-        media:state.mediaState.searchResults
+        favoritesMessage:state.iFavoriteState.favoritesMessage
     }
 }
 

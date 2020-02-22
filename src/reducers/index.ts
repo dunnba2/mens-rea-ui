@@ -6,6 +6,7 @@ import { iDreamStateReducer } from "./idream-state-reducer";
 import { iFavoriteStateReducer } from "./favorite-state-reducer";
 import { mediaReducer } from "./media-reducer";
 import { googleBookReducer } from "./google-book-reducer";
+import { watchListReducer } from "./watchlist-reducer";
 
 
 export interface IUserState {
@@ -45,6 +46,12 @@ export interface IDreamState {
 
 export interface IFavoriteState{
     favorites:any[]
+    favoritesMessage: string
+}
+
+export interface IWatchListState{
+    watchList:any[]
+    watchListMessage:string
 }
 
 export interface IState {
@@ -54,7 +61,8 @@ export interface IState {
     iDreamState: IDreamState
     iFavoriteState: IFavoriteState
     mediaState: IMediaState
-    googleBookState: IGooogleBookState    
+    googleBookState: IGooogleBookState 
+    watchListState: IWatchListState   
 }
 
 // we will take the individual reduces for each part of state
@@ -66,5 +74,6 @@ export const state = combineReducers<IState>({
     iDreamState:iDreamStateReducer,
     iFavoriteState:iFavoriteStateReducer,
     mediaState:mediaReducer,
-    googleBookState:googleBookReducer 
+    googleBookState:googleBookReducer,
+    watchListState:watchListReducer 
 })

@@ -2,18 +2,12 @@ import React from "react";
 import { IDreamBookDisplayComponent } from "./idream-book-display-component/IDreamBookDisplayComponent";
 import { Link } from "react-router-dom";
 
-interface ILandingProps {
-    user: any
-    iDreamBooks: any[]
-    getRecommendedTitles: () => void
-}
-
 interface ILandingState {
     position: number
 
 }
 
-export class LandingComponent extends React.Component<ILandingProps, ILandingState> {
+export class LandingComponent extends React.Component<any, ILandingState> {
     constructor(props: any) {
         super(props)
         this.state = {
@@ -37,8 +31,26 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
         this.getPos();
     }
 
+    checkUserFavs = () => {
+        if(this.props.loggedIn) {
+            this.props.history.push('/favorites')
+        }
+        else {
+            this.props.history.push('login')
+        }
+    }
+
+    checkUserWatch = () => {
+        if(this.props.loggedIn) {
+            this.props.history.push('/watchlist')
+        }
+        else {
+            this.props.history.push('/login')
+        }
+    }
+
     render() {
-        const displayBook: IDreamBookDisplayComponent[] = this.props.iDreamBooks.map<any>((book: any) => {
+        const displayBook: IDreamBookDisplayComponent[] = this.props.iDreamBooks.map((book: any) => {
             return <IDreamBookDisplayComponent title={book.title}
                 author={book.author}
                 review_snippet={book.review_snippet}
@@ -78,7 +90,7 @@ export class LandingComponent extends React.Component<ILandingProps, ILandingSta
                                  libraries to showcase everything they already have.
                             </p>
                             <p>Already a member?  Login or visit your watch list or library here!</p>
-                            <button className="mr-button">Watch List</button><button className="mr-button">Library</button><Link to="/login" className="mr-button">Login</Link>
+                            <button onClick={this.checkUserWatch} className="mr-button">Watch List</button><button onClick={this.checkUserFavs} className="mr-button">Library</button><Link to="/login" className="mr-button">Login</Link>
                             <br/><br/><br/>
                             <p>Not a member yet?  Consider joining us to get access to all of our features!</p>
                             <Link to="/register" className="mr-button">Register</Link>
