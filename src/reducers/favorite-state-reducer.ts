@@ -3,7 +3,8 @@ import { getAllFavoriteTypes } from "../action-mappers/favorite-action";
 
 
 const initialState: IFavoriteState = {
-    favorites:[]  //do i need userId here?
+    favorites:[],
+    favoritesMessage:''  
 }
 
 export const iFavoriteStateReducer = (state = initialState, action:any) => {
@@ -12,6 +13,12 @@ export const iFavoriteStateReducer = (state = initialState, action:any) => {
             return{
                 ...state,
                 favorites:action.payload.favorites
+            }
+        }
+        case getAllFavoriteTypes.NO_FAVORITES_LIST:{
+            return {
+                ...state,
+                favoritesMessage: "You don't have any favorites yet!"
             }
         }
         case getAllFavoriteTypes.GET_BY_TYPE_FAVORITES:{

@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface IFavoriteProps {
+interface IWatchListDisplayProps {
     title: string
     creator: string
     year: string
@@ -9,23 +9,24 @@ interface IFavoriteProps {
     type: string
 }
 
-interface IFavoriteState {
+interface IWatchListDisplayState {
     creatortype: string
-    shopsrc: string
+    shopsrc: string 
     imgsrc: string
 }
 
-
-export class FavoriteDisplayComponent extends React.PureComponent<IFavoriteProps, IFavoriteState> {
+export class WatchListDisplayComponent extends React.PureComponent<IWatchListDisplayProps, IWatchListDisplayState> {
 
     constructor(props: any) {
-        super(props)
+        super(props) 
         this.state = {
-            creatortype: "",
-            shopsrc: "",
-            imgsrc:""
+            creatortype: '',
+            shopsrc: '',
+            imgsrc:''
         }
+        
     }
+
     componentDidMount() {
         if (this.props.type === "BOOK") {
             this.setState({
