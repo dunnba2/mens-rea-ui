@@ -31,7 +31,7 @@ export class WatchListComponent extends React.Component<IWatchListProps, any> {
         return (
             <div className="main">
                 <h1>Mens Rea</h1>
-                <h2>Favorites</h2>
+                <h2>Watch List</h2>
                 <div className="content">
                     <h3>{this.props.watchListMessage}</h3>
                     {displayWatchList}

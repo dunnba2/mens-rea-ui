@@ -21,19 +21,22 @@ export const NavbarComponent = (props:any) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
+                            {props.loggedIn ?  <DropdownToggle nav caret>
+                                Logout
+                            </DropdownToggle> :  <DropdownToggle nav caret>
                                 Sign-In
-                            </DropdownToggle>
+                            </DropdownToggle>}
+                           
                             <DropdownMenu left className="navdropdown">
-                                <DropdownItem className="navdropitem">
+                                {props.loggedIn ? "" : <DropdownItem className="navdropitem">
                                     <Link to='/login'>Login</Link>
-                                </DropdownItem>
-                                <DropdownItem className="navdropitem">
+                                </DropdownItem> }
+                                {props.loggedIn ? "" : <DropdownItem className="navdropitem">
                                     <Link to='/register'>Register</Link>
-                                </DropdownItem>
-                                <DropdownItem className="navdropitem" onClick={props.logoutUser}>
+                                </DropdownItem>}
+                                {props.loggedIn ? <DropdownItem className="navdropitem" onClick={props.logoutUser}>
                                     <Link to='/'>Logout</Link>
-                                </DropdownItem>
+                                </DropdownItem> : "" } 
                             </DropdownMenu>
                         </UncontrolledDropdown>
                         <NavItem>

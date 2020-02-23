@@ -6,8 +6,7 @@ import {getRecommendedTitles} from "../../action-mappers/idream-book-actions"
 const mapStateToProps = (state:IState) => {
     return {
         iDreamBooks:state.iDreamState.iDreamBooks,
-        user:state.userState.currentUser,
-        loggedIn:state.userState.loggedIn        
+        user:state.userState.currentUser       
     }
 }
 const mapDispatchToProps = {
