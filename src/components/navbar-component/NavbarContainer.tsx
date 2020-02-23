@@ -12,7 +12,7 @@ const mapStateToProps = (state:IState) => {
 }
 
 const mapDispatchToProps = {
-    logoutUser,
+    logoutUser
     
 }
 

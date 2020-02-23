@@ -42,18 +42,18 @@ export const SubmitReviewComponent = (props:any) => {
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader >{bookTitle}</ModalHeader>
+                <ModalHeader >{props.bookTitle}</ModalHeader>
                 <ModalBody>
                     <Form>
                         <FormGroup>
                             <Label for="exampleText">Review</Label>
-                            <Input type="textarea" name="text" id="exampleText" value={review} onChange={updateReview} />
+                            <Input type="textarea" name="text" id="exampleText" value={props.review} onChange={props.updateReview} />
                         </FormGroup>
                         <FormGroup tag="fieldset">
                             <Label>Radio Buttons</Label>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="radio" name="radio1" value="true" onChange={updateRecommended}/>{' '}Yes</Label>
+                                    <Input type="radio" name="radio1" value="true" onChange={props.updateRecommended}/>{' '}Yes</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
