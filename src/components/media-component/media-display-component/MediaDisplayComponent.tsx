@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {saveToLibrary} from "../../../remote/mens-rea-app/save-to-library"
 import {saveToWatch} from "../../../remote/mens-rea-app/save-to-watch"
 
@@ -15,13 +15,21 @@ interface IMediaDisplayProps {
 interface IMediaDisplayState {
     creatortype: string,
     imgsrc: string,
+    modal: boolean,
+    review: string,
+    recommended: boolean
+
 }
 export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProps, IMediaDisplayState> {
     constructor(props: any) {
         super(props)
         this.state = {
             creatortype: "",
-            imgsrc: ""
+            imgsrc: "",
+            modal: false,
+            review: '',
+            recommended: false
+
         }
     }
     componentDidMount() {
@@ -89,6 +97,14 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         let a=document.getElementById("successful");
         if (a) {a.style.display="none";}
     }
+
+     reviewModal = () => {
+
+    }
+     
+
+    
+
     render() {
         return (
             <>
