@@ -32,6 +32,8 @@ export class LandingComponent extends React.Component<any, ILandingState> {
     }
 
     checkUserFavs = () => {
+        console.log(this.props.loggedIn);
+        
         if(this.props.loggedIn) {
             this.props.history.push('/favorites')
         }
