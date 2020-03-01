@@ -3,70 +3,61 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, La
 import { submitReview } from '../../remote/mens-rea-app/mens-rea-submit-review';
 
 
-
-export const SubmitReviewComponent = (props:any) => {
+const SubmitReviewComponent = (props: any) => {
     const {
-            userId,
-            mediaId,
-            bookTitle,
-            review,
-            recommended  
+        bookTitle,
+        userId,
+        mediaId
     } = props
 
     const [modal, setModal] = useState(false);
+    const [review, setReview] = useState('');
+    const [recommended, setRecommended] = useState(false);
 
     const toggle = () => setModal(!modal);
 
-    const updateReview = (event: any) => {
-        props.setState({
-            ...props.state,
-            review:event.target.value
-        })
-    }
-
-    const updateRecommended = (event:any) => {
-        props.setState({
-            ...props.state,
-            recommended:event.target.value === 'true' ? true : false
-        })
-    }
+    const updateReview = (event:any) => setReview(event.target.value) 
+  
 
     const submitNewReview = async (event: SyntheticEvent) => {
         event.preventDefault()
-        let response: any = await submitReview(userId, mediaId, recommended, props.review)
-        if (response.status === 200) {
-            props.history.push("/media")
-        }
+        let response: any = await submitReview(userId, mediaId, recommended, review)
+        console.log(response);
+        toggle();
+
     }
 
     return (
         <div>
+            <Button className="mr-button" onClick={toggle}>Write A Review</Button>
             <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader >{props.bookTitle}</ModalHeader>
+                <ModalHeader >{bookTitle}</ModalHeader>
                 <ModalBody>
                     <Form>
                         <FormGroup>
                             <Label for="exampleText">Review</Label>
-                            <Input type="textarea" name="text" id="exampleText" value={props.review} onChange={props.updateReview} />
+                            <Input required type="textarea" name="text" id="exampleText" onChange={updateReview} />
                         </FormGroup>
                         <FormGroup tag="fieldset">
-                            <Label>Radio Buttons</Label>
+                            <Label>Do you recommend {bookTitle}?</Label>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="radio" name="radio1" value="true" onChange={props.updateRecommended}/>{' '}Yes</Label>
+                                    <Input type="radio" name="radio1" onChange={() => setRecommended(true)} />{' '}Yes</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="radio" name="radio2" value='false' onChange={updateRecommended}/>{' '}No</Label>
+                                    <Input type="radio" name="radio2" onChange={() => setRecommended(false)} />{' '}No</Label>
                             </FormGroup>
                         </FormGroup>
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onSubmit={submitNewReview}>Submit</Button>{' '}
-                    <Button color="secondary">Cancel</Button>
+                    <Button  color="primary" onClick={submitNewReview}>Submit</Button>{' '}
+                    <Button onClick={toggle} color="secondary">Cancel</Button>
                 </ModalFooter>
             </Modal>
         </div>
     );
 }
+
+export default SubmitReviewComponent;

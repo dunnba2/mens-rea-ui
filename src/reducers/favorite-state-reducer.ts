@@ -12,7 +12,8 @@ export const iFavoriteStateReducer = (state = initialState, action:any) => {
         case getAllFavoriteTypes.GET_ALL_FAVORITES:{
             return{
                 ...state,
-                favorites:action.payload.favorites
+                favorites:action.payload.favorites,
+                favoritesMessage:""
             }
         }
         case getAllFavoriteTypes.NO_FAVORITES_LIST:{

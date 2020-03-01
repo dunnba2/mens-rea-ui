@@ -12,7 +12,8 @@ export const watchListReducer = (state = initalState, action: any) => {
         case watchListTypes.GET_WATCHLIST: {
             return {
                 ...state,
-                watchList:action.payload.watchList
+                watchList:action.payload.watchList,
+                watchListMessage:""
             }
         }
         case watchListTypes.NO_WATCHLIST: {

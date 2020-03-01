@@ -11,9 +11,7 @@ interface IWatchListProps {
 export class WatchListComponent extends React.Component<IWatchListProps, any> {
 
     componentDidMount() {
-        if(this.props.watchList.length === 0) {
-            this.props.getAllWatchList(this.props.user.id)
-        }
+        this.props.getAllWatchList(this.props.user.id) 
     }
 
     render() {
