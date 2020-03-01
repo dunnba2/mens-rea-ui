@@ -1,5 +1,6 @@
 import React, { SyntheticEvent } from 'react';
 import { Form, FormGroup, Col, Input, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 interface ILoginState {
     username: string
@@ -38,7 +39,7 @@ export class LoginComponent extends React.Component<any, ILoginState> {
         
 
         if (this.props.loggedIn) {
-            this.props.history.push(from)
+            setTimeout(() => this.props.history.push(from), 3000)
         }
     }
 
@@ -73,11 +74,16 @@ export class LoginComponent extends React.Component<any, ILoginState> {
                                 </Col>
                             </FormGroup>
                             <Button className="mr-button">Login</Button>
+                            <p>Not a member, yet?
+                                <Link to='/register'> Register</Link>
+                            </p>
                         </Form>
+                        <p>{this.props.loginMessage}</p>
                         <br /><br />
                     </div>
+                    
                 </div>
-                <p>{this.props.loginMessage}</p>}
+                
             </div>
         )
     }

@@ -1,6 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import {saveToLibrary} from "../../../remote/mens-rea-app/save-to-library"
 import {saveToWatch} from "../../../remote/mens-rea-app/save-to-watch"
+import SubmitReviewComponent from "../../submit-review-component/SubmitReviewComponent";
+import ReviewComponent from "../../reviews-component/ReviewComponent";
+import { getReviews } from "../../../remote/mens-rea-app/mens-rea-get-reviews";
+
 
 interface IMediaDisplayProps {
     title: string,
@@ -10,7 +14,8 @@ interface IMediaDisplayProps {
     userrating: number,
     type: string,
     mediaId: number,
-    user: any
+    user: any,
+    loggedIn: boolean
 }
 interface IMediaDisplayState {
     creatortype: string,
@@ -20,7 +25,7 @@ interface IMediaDisplayState {
     recommended: boolean
 
 }
-export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProps, IMediaDisplayState> {
+export class MediaDisplayComponent extends React.PureComponent<any, IMediaDisplayState> {
     constructor(props: any) {
         super(props)
         this.state = {
@@ -32,6 +37,8 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
 
         }
     }
+
+    
     componentDidMount() {
         if (this.props.type === "BOOK") {
             this.setState({
@@ -56,10 +63,12 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         }
     }
     librarySave = async () => {
+        
         console.log("in librarySave")
         if (!this.props.user) {
             let a=document.getElementById("failed");
             if (a) {a.style.display="block";}
+            
         }
         else {
             let uID=this.props.user.id;
@@ -72,10 +81,12 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
         }
     }
     watchSave = async () => {
+        
         console.log("in watchSave")
         if (!this.props.user) {
             let a=document.getElementById("failed");
             if (a) {a.style.display="block";}
+            
         }
         else {
             let uID=this.props.user.id;
@@ -96,14 +107,12 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
     hideAlertS=()=>{
         let a=document.getElementById("successful");
         if (a) {a.style.display="none";}
+    } 
+
+    getReviewList = async () => {
+        let reviews = await getReviews(this.props.mediaId)
+        return reviews
     }
-
-     reviewModal = () => {
-
-    }
-     
-
-    
 
     render() {
         return (
@@ -127,9 +136,11 @@ export class MediaDisplayComponent extends React.PureComponent<IMediaDisplayProp
                         {this.props.type === "BOOK" ? "" : <br />}
                         <b>{this.state.creatortype}:</b> {this.props.creator}</p>
                     <br />
+                    {/* <ReviewComponent mediaId={this.props.mediaId} bookTitle={this.props.title} /> */}
+                    <SubmitReviewComponent bookTitle={this.props.title} userId={this.props.user ? this.props.user.id : ''} mediaId={this.props.mediaId}/>
                     <button className="mr-button" onClick={this.librarySave}>Add to Library</button> <button className="mr-button" onClick={this.watchSave}>Add to Watch List</button>
                 </div>
             </>
         )
-    }
+    } 
 }

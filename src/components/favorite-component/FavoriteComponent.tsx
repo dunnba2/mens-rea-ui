@@ -11,10 +11,7 @@ interface IFavoriteProps {
 export class FavoriteComponent extends React.Component<IFavoriteProps, any> {
 
     componentDidMount() {
-        console.log("in did mount");
-        if (this.props.favorites.length === 0) {
-            this.props.getAllFavoriteList(this.props.user.id)
-        }
+        this.props.getAllFavoriteList(this.props.user.id)
     }
 
 

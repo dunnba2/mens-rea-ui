@@ -13,6 +13,7 @@ interface IMediaProps {
     page: number,
     type: any,
     user: any,
+    loggedIn: boolean,
     getNewPageMediaResults: (searchTerm: string, page: number, type: any) => void,
     changeMediaResultsPage: (searchTerm: string, page: number, type: any) => void,
     getAllMedia: () => void,
@@ -63,11 +64,12 @@ export class MediaComponent extends React.Component<IMediaProps, IMediaState> {
                 year={list.year}
                 creator={list.creator}
                 type={list.type}
-                key={list.mediaId}
+                key={list.id}
                 targetaudience={list.targetAudience}
                 userrating={list.userRating}
-                mediaId={list.mediaId}
+                mediaId={list.id}
                 user={this.props.user}
+                loggedIn={this.props.loggedIn}
             />
         })
         return (
